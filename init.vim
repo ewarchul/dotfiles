@@ -26,11 +26,13 @@ set foldmethod=syntax
 set foldlevelstart=10
 set foldnestmax=10
 
+set mouse=a
+
 syntax enable
 
 
 call plug#begin()
-" Interface
+"" Interface
 
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'mhinz/vim-startify'
@@ -51,6 +53,8 @@ Plug 'prabirshrestha/vim-lsp' " vim-lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc'
 Plug 'lervag/vimtex'
+Plug 'vim-scripts/a.vim'
+Plug 'deoplete-plugins/deoplete-clang'
 
 " Languages 
 
@@ -58,6 +62,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'lifepillar/pgsql.vim'
 
 " Themes
 
@@ -74,6 +80,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'luochen1990/rainbow'
 Plug 'psliwka/vim-smoothie'
 Plug 'Yggdroot/indentLine'
+Plug 'xolox/vim-misc'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 
 call plug#end()
@@ -87,7 +95,6 @@ nnoremap <C-\> :ArgWrap<CR>
 " THEME
 
 colorscheme monokai
-
 
 " Plugins settings: 
 " 
@@ -114,6 +121,17 @@ let g:rainbow_active = 1
 " @DEOPLETE
 
 let g:deoplete#enable_at_startup = 1
+
+" @NEOFORMAT
+
+let g:neoformat_cpp_clangformat = {
+  \ 'exe': 'clang-format',
+  \ 'args': ['--style="{IndentWidth: 2}"'],
+  \}
+
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
+
 
 " @FZF
 
