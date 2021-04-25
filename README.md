@@ -2,4 +2,3 @@
 
 * NeoVim
 * i3 
-* Polybar
