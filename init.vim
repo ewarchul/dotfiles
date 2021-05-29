@@ -33,7 +33,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/tagbar'
-Plug 'xolox/vim-easytags'
 Plug 'Shougo/defx.nvim', { 'do': 'UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'ludovicchabant/vim-gutentags'
@@ -111,6 +110,7 @@ autocmd VimEnter * NERDTree | wincmd p
 let g:coc_diagnostic_disable = 1
 nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>
 nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
+nmap <silent> gh :call CocAction('jumpDefinition', 'tabnew')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -160,3 +160,15 @@ let g:fzf_action = {
 
 " @TAGBAR
 nmap <F8> :TagbarToggle<CR>
+
+" @MISC
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
