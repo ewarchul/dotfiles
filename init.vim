@@ -1,6 +1,6 @@
 syntax enable
-set number
 set ruler
+set number
 set smartcase                   
 set autoindent
 set tabstop=2 shiftwidth=2 expandtab
