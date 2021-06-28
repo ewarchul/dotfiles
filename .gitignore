@@ -1,1 +1,3 @@
 tags
+*.json
+update.sh
