@@ -64,10 +64,11 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
   Plug 'f-person/git-blame.nvim'
+  Plug 'norcalli/snippets.nvim'
+  Plug 'hrsh7th/nvim-compe'
   "" Programming
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
-  Plug 'hrsh7th/nvim-compe'
   Plug 'neovim/nvim-lspconfig'
   Plug 'kabouzeid/nvim-lspinstall'
   Plug 'glepnir/lspsaga.nvim'
@@ -76,9 +77,11 @@ call plug#begin()
   Plug 'Shougo/echodoc'
   Plug 'folke/trouble.nvim'
   Plug 'cdelledonne/vim-cmake' 
+  Plug 'elixir-editors/vim-elixir' 
   "" Themes
   Plug 'dracula/vim'
   Plug 'gruvbox-community/gruvbox'
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'Shadorain/shadotheme'
   "" Misc
   Plug 'psliwka/vim-smoothie'
@@ -133,7 +136,7 @@ nnoremap <C-DOWN> <C-W><DOWN>
 nnoremap <C-UP> <C-W><UP>
 
 "" THEME
-colorscheme gruvbox
+colorscheme onehalfdark
 
 "" Plugins settings: 
 
