@@ -1,4 +1,18 @@
 #i3 
+exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/Wallpapers/cpunk1.jpg
+
+bar {
+ status_command i3status #--config /home/ewarchul/.config/i3status/config 
+ position top
+ separator_symbol "|--❤--|"
+ font pango:Source Code Pro Bold 9
+ colors {
+   background #000000
+   statusline #FFFFFF
+   separator  #378CD0
+   focused_workspace  #D00909 #FF7EE4 #FFFFFF
+ }
+}
 
 set $mod Mod1
 
@@ -218,8 +232,6 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id $HOME/.config/polybar/i3wmthemer_bar_launch.sh
-exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/Wallpapers/cpunk1.jpg
 
 # Theme colors
 client.focused #bfbfbf #162025 #bfbfbf #193a48 #193a48
