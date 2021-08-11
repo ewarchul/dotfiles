@@ -9,6 +9,7 @@ order += "memory"
 order += "disk /"
 order += "cpu_temperature 0"
 order += "load"
+order += "volume master0"
 
 memory {
   format = "💻 :: %used"
@@ -31,4 +32,12 @@ load {
 
 disk "/" {
   format = "🏡 :: %free"
+}
+
+volume master0 {
+  format = "🔊 :: %volume"
+  format_muted = "Phones ♪: muted (%volume)"
+  device = hw:0
+  mixer = "Master"
+  mixer_idx = 0
 }
