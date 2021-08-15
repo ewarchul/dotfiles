@@ -4,12 +4,12 @@ general {
   interval = 5
 }
 
-order += "tztime local"
-order += "memory"
+order += "volume master0"
 order += "disk /"
+order += "memory"
 order += "cpu_temperature 0"
 order += "load"
-order += "volume master0"
+order += "tztime local"
 
 memory {
   format = "💻 :: %used"
@@ -18,7 +18,7 @@ memory {
 }
 
 tztime local {
-  format = "🌍 :: %H:%M:%S {%d-%m-%y}"
+  format = "🌍 :: %H:%M {%d-%m-%y}"
 }
 
 cpu_temperature 0 {

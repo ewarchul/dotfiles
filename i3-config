@@ -5,11 +5,11 @@ bar {
  status_command i3status #--config /home/ewarchul/.config/i3status/config 
  position top
  separator_symbol "|~~❤~~|"
- font pango:Source Code Pro Bold 9
+ font pango:Source Code Pro Bold 10
  colors {
    background #000000
    statusline #FFFFFF
-   separator  #378CD0
+   separator  #FFBED5
    focused_workspace  #D00909 #FF7EE4 #FFFFFF
  }
 }
