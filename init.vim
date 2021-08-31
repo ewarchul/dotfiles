@@ -66,6 +66,8 @@ call plug#begin()
   Plug 'f-person/git-blame.nvim'
   Plug 'norcalli/snippets.nvim'
   Plug 'hrsh7th/nvim-compe'
+  Plug 'alvarosevilla95/luatab.nvim'
+  Plug 'SmiteshP/nvim-gps'
   "" Programming
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
@@ -78,6 +80,7 @@ call plug#begin()
   Plug 'folke/trouble.nvim'
   Plug 'cdelledonne/vim-cmake' 
   Plug 'elixir-editors/vim-elixir' 
+  Plug 'ray-x/lsp_signature.nvim'
   "" Themes
   Plug 'dracula/vim'
   Plug 'gruvbox-community/gruvbox'
@@ -92,7 +95,7 @@ call plug#begin()
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'folke/lsp-colors.nvim'
   Plug 'vhyrro/neorg'
-
+  Plug 'sindrets/diffview.nvim'
 call plug#end()
 
 let g:cmake_root_markers = ['CMakeLists.txt']
@@ -101,6 +104,7 @@ let g:cmake_root_markers = ['CMakeLists.txt']
 lua << EOF
 require('plugins')
 EOF
+lua require'lsp_signature'.signature()
 
 "" symbols-outline
 let g:symbols_outline = {

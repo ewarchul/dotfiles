@@ -1,4 +1,7 @@
-  require'colorizer'.setup()
+vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
+local gps = require("nvim-gps")
+
+require'colorizer'.setup()
   require'nvim-web-devicons'.get_icons()
   require'nvim-treesitter.configs'.setup {
     rainbow = {
@@ -21,6 +24,7 @@
   require'lspinstall'.setup()
 
   local on_attach = function(client, bufnr)
+    require "lsp_signature".setup()
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -29,7 +33,7 @@
     --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<L>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -131,6 +135,15 @@
   end
 
   gls.left[1] = {
+    nvimGPS = {
+          provider = function()
+            return gps.get_location()
+          end,
+          condition = function()
+            return gps.is_available()
+          end,
+          highlight = {colors.blue,colors.yellow}
+    },
     FirstElement = {
       provider = function() return '▋' end,
       highlight = {colors.blue,colors.yellow}
@@ -308,5 +321,61 @@ vim.g.nvim_tree_bindings = {
   {
     key = "t",
     cb = tree_cb("tabnew")
+  }
+}
+
+require("nvim-gps").setup({
+	icons = {
+		["class-name"] = ' ',      -- Classes and class-like objects
+		["function-name"] = ' ',   -- Functions
+		["method-name"] = ' '      -- Methods (functions inside class-like objects)
+	},
+	-- Disable any languages individually over here
+	-- Any language not disabled here is enabled by default
+	languages = {
+		-- ["bash"] = false,
+		-- ["go"] = false,
+	},
+	separator = ' > ',
+})
+
+local cb = require'diffview.config'.diffview_callback
+
+require'diffview'.setup {
+  diff_binaries = false,    -- Show diffs for binaries
+  file_panel = {
+    position = "left",      -- One of 'left', 'right', 'top', 'bottom'
+    width = 35,             -- Only applies when position is 'left' or 'right'
+    height = 10,            -- Only applies when position is 'top' or 'bottom'
+    use_icons = true        -- Requires nvim-web-devicons
+  },
+  key_bindings = {
+    disable_defaults = false,                   -- Disable the default key bindings
+    -- The `view` bindings are active in the diff buffers, only when the current
+    -- tabpage is a Diffview.
+    view = {
+      ["<C-tab>"]     = cb("select_next_entry"),  -- Open the diff for the next file 
+      ["<s-tab>"]   = cb("select_prev_entry"),  -- Open the diff for the previous file
+      ["<leader>e"] = cb("focus_files"),        -- Bring focus to the files panel
+      ["<leader>b"] = cb("toggle_files"),       -- Toggle the files panel.
+    },
+    file_panel = {
+      ["j"]             = cb("next_entry"),         -- Bring the cursor to the next file entry
+      ["<down>"]        = cb("next_entry"),
+      ["k"]             = cb("prev_entry"),         -- Bring the cursor to the previous file entry.
+      ["<up>"]          = cb("prev_entry"),
+      ["<cr>"]          = cb("select_entry"),       -- Open the diff for the selected entry.
+      ["o"]             = cb("select_entry"),
+      ["<2-LeftMouse>"] = cb("select_entry"),
+      ["-"]             = cb("toggle_stage_entry"), -- Stage / unstage the selected entry.
+      ["S"]             = cb("stage_all"),          -- Stage all entries.
+      ["U"]             = cb("unstage_all"),        -- Unstage all entries.
+      ["X"]             = cb("restore_entry"),      -- Restore entry to the state on the left side.
+      ["R"]             = cb("refresh_files"),      -- Update stats and entries in the file list.
+      ["<tab>"]         = cb("select_next_entry"),
+      ["<s-tab>"]       = cb("select_prev_entry"),
+      ["<leader>e"]     = cb("focus_files"),
+      ["<leader>b"]     = cb("toggle_files"),
+    }
   }
 }
