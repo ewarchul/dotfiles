@@ -86,6 +86,7 @@ call plug#begin()
   Plug 'gruvbox-community/gruvbox'
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'Shadorain/shadotheme'
+  Plug 'ray-x/aurora'
   "" Misc
   Plug 'psliwka/vim-smoothie'
   Plug 'Yggdroot/indentLine'
@@ -141,7 +142,7 @@ nnoremap <C-UP> <C-W><UP>
 
 "" THEME
 colorscheme onehalfdark
-
+set background=dark
 "" Plugins settings: 
 
 "" @NvimTreeLua
