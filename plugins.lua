@@ -53,6 +53,7 @@ require'colorizer'.setup()
     require'lspconfig'[server].setup{ on_attach = on_attach }
   end
   require'lspconfig'.rnix.setup{}
+  require'lspconfig'.r_language_server.setup{}
 
   -- Compe setup
     require'compe'.setup {
@@ -346,8 +347,8 @@ require'diffview'.setup {
   file_panel = {
     position = "left",      -- One of 'left', 'right', 'top', 'bottom'
     width = 35,             -- Only applies when position is 'left' or 'right'
-    height = 10,            -- Only applies when position is 'top' or 'bottom'
-    use_icons = true        -- Requires nvim-web-devicons
+    height = 10            -- Only applies when position is 'top' or 'bottom
+    -- use_icons = true        -- Requires nvim-web-devicons
   },
   key_bindings = {
     disable_defaults = false,                   -- Disable the default key bindings
