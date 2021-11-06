@@ -21,6 +21,7 @@ set mouse=a
 
 set filetype=on
 
+
 function Setup_tabs()
   set ruler
   set number
@@ -30,12 +31,12 @@ function Setup_tabs()
   set smarttab
   set si
   set wrap
-  set textwidth=79
+  set textwidth=80
   set clipboard+=unnamedplus
   set encoding=UTF-8
   set showcmd
   set showmatch
-  set colorcolumn=79
+  set colorcolumn=80
   set foldmethod=indent
   set foldlevelstart=10
   set foldnestmax=10
@@ -56,9 +57,14 @@ call plug#begin()
   Plug 'ryanoasis/vim-devicons'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'simrat39/symbols-outline.nvim'
-  Plug 'RRethy/vim-illuminate'
+"  Plug 'RRethy/vim-illuminate'
   Plug 'kyazdani42/nvim-web-devicons' 
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-lua/popup.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'liuchengxu/vista.vim'
@@ -70,7 +76,7 @@ call plug#begin()
   Plug 'f-person/git-blame.nvim'
   Plug 'norcalli/snippets.nvim'
 "  Plug 'SmiteshP/nvim-gps'
-  Plug 'hrsh7th/nvim-compe'
+"  Plug 'hrsh7th/nvim-compe'
   Plug 'alvarosevilla95/luatab.nvim'
   "" Programming
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -91,6 +97,7 @@ call plug#begin()
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'Shadorain/shadotheme'
   Plug 'ray-x/aurora'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   "" Misc
   Plug 'psliwka/vim-smoothie'
   Plug 'Yggdroot/indentLine'
@@ -104,6 +111,7 @@ call plug#begin()
 call plug#end()
 
 let g:cmake_root_markers = ['CMakeLists.txt']
+set completeopt=menu,menuone,noselect
 
 
 lua << EOF
@@ -130,7 +138,7 @@ let g:symbols_outline = {
 
 "" BINDINGS 
 nnoremap <silent> gy :Lspsaga rename<CR> 
-nnoremap <silent>gh :Lspsaga hover_doc<CR>
+nnoremap <silent> gh :Lspsaga hover_doc<CR>
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 
@@ -144,15 +152,18 @@ nnoremap <C-RIGHT> <C-W><RIGHT>
 nnoremap <C-DOWN> <C-W><DOWN>
 nnoremap <C-UP> <C-W><UP>
 
+nnoremap <C-m> :Neoformat<CR>
+
 "" THEME
-colorscheme onehalfdark
+"colorscheme onehalfdark
+"colorscheme gruvbox
+colorscheme tokyonight
 set background=dark
 "" Plugins settings: 
 
 "" @NvimTreeLua
 let g:nvim_tree_side = 'left' "left by default
-let g:nvim_tree_width = 30
-let g:nvim_tree_auto_open = 1
+let g:nvim_tree_width = 10
 let g:nvim_tree_highlight_opened_files = 1
 let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } " List of filenames that gets highlighted with NvimTreeSpecialFile
 let g:nvim_tree_show_icons = {
@@ -209,5 +220,4 @@ let g:neoformat_cpp_clangformat = {
   \}
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_c = ['clangformat']
-
 
