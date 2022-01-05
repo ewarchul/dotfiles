@@ -96,6 +96,7 @@ call plug#begin()
   "" Themes
   Plug 'dracula/vim'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'EdenEast/nightfox.nvim'
 "  Plug 'gruvbox-community/gruvbox'
   Plug 'rktjmp/lush.nvim'
   Plug 'ellisonleao/gruvbox.nvim'
@@ -160,13 +161,9 @@ nnoremap <C-m> :Neoformat<CR>
 nnoremap <C-x> :SymbolsOutline<CR>
 
 "" THEME
-"colorscheme onehalfdark
-colorscheme gruvbox
-
-let g:rose_pine_variant = 'moon'
-"colorscheme rose-pine
-"colorscheme tokyonight
+colorscheme nightfox
 set background=dark
+
 "" Plugins settings: 
 
 "" @NvimTreeLua
