@@ -51,6 +51,7 @@ augroup END
 
 call plug#begin()
 """ Interface
+  Plug 'tamton-aquib/staline.nvim'
   Plug 'cloudhead/neovim-fuzzy'
   Plug 'preservim/nerdcommenter'
   Plug 'FooSoft/vim-argwrap'
@@ -78,11 +79,12 @@ call plug#begin()
 "  Plug 'SmiteshP/nvim-gps'
 "  Plug 'hrsh7th/nvim-compe'
   Plug 'alvarosevilla95/luatab.nvim'
+  Plug 'neovim/nvim-lspconfig'
   "" Programming
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'williamboman/nvim-lsp-installer'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'neomake/neomake'
   Plug 'sbdchd/neoformat'
@@ -93,11 +95,17 @@ call plug#begin()
   Plug 'ray-x/lsp_signature.nvim'
   "" Themes
   Plug 'dracula/vim'
-  Plug 'gruvbox-community/gruvbox'
+  Plug 'NLKNguyen/papercolor-theme'
+"  Plug 'gruvbox-community/gruvbox'
+  Plug 'rktjmp/lush.nvim'
+  Plug 'ellisonleao/gruvbox.nvim'
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
   Plug 'Shadorain/shadotheme'
   Plug 'ray-x/aurora'
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  Plug 'rose-pine/neovim'
+  Plug 'sainnhe/edge'
+  Plug 'mangeshrex/uwu.vim' 
   "" Misc
   Plug 'psliwka/vim-smoothie'
   Plug 'Yggdroot/indentLine'
@@ -117,7 +125,6 @@ set completeopt=menu,menuone,noselect
 lua << EOF
 require('plugins')
 EOF
-lua require'lsp_signature'.signature()
 
 "" symbols-outline
 let g:symbols_outline = {
@@ -137,13 +144,10 @@ let g:symbols_outline = {
 \ }
 
 "" BINDINGS 
-nnoremap <silent> gy :Lspsaga rename<CR> 
-nnoremap <silent> gh :Lspsaga hover_doc<CR>
-nnoremap <silent> gs :Lspsaga signature_help<CR>
-nnoremap <silent> gd :Lspsaga preview_definition<CR>
 
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+nnoremap <silent> gh <cmd> lua require('lspsaga.provider').lsp_finder()<CR>
+nnoremap <silent> gy <cmd> lua require('lspsaga.rename').rename()<CR>
+nnoremap <silent> gd <cmd> lua require('lspsaga.provider').preview_definition()<CR>
 
 nnoremap <C-\> :ArgWrap<CR>
 nnoremap <C-]> <C-w><C-]><C-w>T
@@ -153,11 +157,15 @@ nnoremap <C-DOWN> <C-W><DOWN>
 nnoremap <C-UP> <C-W><UP>
 
 nnoremap <C-m> :Neoformat<CR>
+nnoremap <C-x> :SymbolsOutline<CR>
 
 "" THEME
 "colorscheme onehalfdark
-"colorscheme gruvbox
-colorscheme tokyonight
+colorscheme gruvbox
+
+let g:rose_pine_variant = 'moon'
+"colorscheme rose-pine
+"colorscheme tokyonight
 set background=dark
 "" Plugins settings: 
 
@@ -220,4 +228,3 @@ let g:neoformat_cpp_clangformat = {
   \}
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_c = ['clangformat']
-
