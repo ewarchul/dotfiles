@@ -1,10 +1,17 @@
 -- vim.o.tabline = '%!v:lua.require\'l
 -- vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
---[[require'lualine'.setup {]] --[[options = {]] --[[theme = 'molokai']] --[[},]] --[[}]] require(
-    'gitsigns').setup()
-require('feline').setup()
+--[[require'lualine'.setup {]] --[[options = {]] --[[theme = 'molokai']] --[[},]] --[[}]] 
+require 'gitsigns'.setup()
+require 'feline'.setup()
+require 'lsp_signature'.setup()
 
 local cmp = require 'cmp'
+
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
+
+
+
 
 cmp.setup({
     snippet = {
@@ -51,16 +58,14 @@ require'nvim-treesitter.configs'.setup {
         max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
     }
 }
-require("trouble").setup {}
-local saga = require 'lspsaga'
+require 'trouble'.setup {}
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "maintained",
     highlight = {enable = true}
 }
-saga.init_lsp_saga()
 
-local nvim_lsp = require('lspconfig')
-require'lspinstall'.setup()
+local nvim_lsp = require 'lspconfig'
+-- require 'lspinstall'.setup()
 
 local on_attach = function(client, bufnr)
     require"lsp_signature".setup()
@@ -102,14 +107,36 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>",
                    opts)
 end
+nvim_lsp.ccls.setup {
+  cmd = { "/home/ewarchul/.local/share/nvim/lsp_servers/ccls/bin/ccls" },
+  on_attach = on_attach
+}
 
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-    require'lspconfig'[server].setup {on_attach = on_attach}
-end
-require'lspconfig'.rnix.setup {}
-require'lspconfig'.r_language_server.setup {}
-require'lspconfig'.ocamllsp.setup {}
+require'lspconfig'.tsserver.setup{
+  on_attach = on_attach
+
+}
+
+nvim_lsp.bashls.setup {
+  cmd = { "/home/ewarchul/.local/share/nvim/lsp_servers/bash/node_modules/.bin/bash-language-server" },
+  on_attach = on_attach
+}
+
+nvim_lsp.cmake.setup {
+  cmd = { "/home/ewarchul/.local/share/nvim/lsp_servers/cmake/venv/bin/cmake-language-server" },
+  on_attach = on_attach
+}
+
+
+--local servers = require'nvim-lsp-installer.servers'
+--[[for _, lsp in ipairs(servers) do]]
+  --[[nvim_lsp[lsp].setup {]]
+    --[[on_attach = on_attach,]]
+    --[[flags = {]]
+      --[[debounce_text_changes = 150,]]
+    --[[}]]
+  --[[}]]
+--[[end]]
 
 -- Compe setup
 --[[require'compe'.setup {]]
@@ -169,7 +196,7 @@ local buffer_not_empty = function()
     return false
 end
 
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+local parser_configs = require 'nvim-treesitter.parsers'.get_parser_configs()
 
 parser_configs.norg = {
     install_info = {
@@ -247,7 +274,7 @@ require'nvim-tree'.setup {
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
     update_cwd = false,
     -- show lsp diagnostics in the signcolumn
-    lsp_diagnostics = false,
+--    lsp_diagnostics = false,
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
         -- enables the feature
@@ -286,3 +313,4 @@ require'nvim-tree'.setup {
     }
 }
 
+vim.g.rose_pine_disable_italics = true
