@@ -1,5 +1,6 @@
+require('pretty-fold').setup{}
+require('pretty-fold.preview').setup()
 require 'gitsigns'.setup()
-require 'feline'.setup()
 require 'lsp_signature'.setup()
 require'colorizer'.setup()
 require'nvim-web-devicons'.get_icons()
@@ -19,6 +20,8 @@ require'nvim-treesitter.configs'.setup {
 local cmp = require 'cmp'
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
+
+
 
 cmp.setup({
     snippet = {
@@ -71,8 +74,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>D',
                    '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
-                   opts)
+--    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
+--                   opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<space>e',
                    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',
@@ -102,6 +105,35 @@ local nvim_lsp = require("lspconfig")
 nvim_lsp.r_language_server.setup {
   on_attach = on_attach
 }
+
+
+nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  cmd = {
+    "/usr/local/bin/clangd",
+    "--background-index",
+    "--suggest-missing-includes",
+    "--clang-tidy",
+    "--header-insertion=iwyu"
+  },
+  root_dir = nvim_lsp.util.root_pattern(
+    "compile_commands.json",
+    "compile_flags.txt",
+    ".git"
+  )
+}
+
+local gps = require("nvim-gps")
+
+require("lualine").setup({
+	sections = {
+			lualine_c = {
+				{ gps.get_location, cond = gps.is_available },
+			}
+	}
+})
+
+
 
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
