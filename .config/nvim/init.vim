@@ -53,11 +53,13 @@ call plug#begin()
 """ Interface
   Plug 'tamton-aquib/staline.nvim'
   Plug 'cloudhead/neovim-fuzzy'
+"  Plug 'kosayoda/nvim-lightbulb'
   Plug 'preservim/nerdcommenter'
   Plug 'FooSoft/vim-argwrap'
   Plug 'ryanoasis/vim-devicons'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'simrat39/symbols-outline.nvim'
+  Plug 'anuvyklack/pretty-fold.nvim'
 "  Plug 'RRethy/vim-illuminate'
   Plug 'kyazdani42/nvim-web-devicons' 
   Plug 'kyazdani42/nvim-tree.lua'
@@ -66,26 +68,29 @@ call plug#begin()
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
   Plug 'nvim-lua/popup.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'liuchengxu/vista.vim'
-"  Plug 'hoob3rt/lualine.nvim'
-  Plug 'famiu/feline.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+"  Plug 'famiu/feline.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 "  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
   Plug 'f-person/git-blame.nvim'
   Plug 'norcalli/snippets.nvim'
-"  Plug 'SmiteshP/nvim-gps'
+  Plug 'SmiteshP/nvim-gps'
 "  Plug 'hrsh7th/nvim-compe'
   Plug 'alvarosevilla95/luatab.nvim'
   Plug 'neovim/nvim-lspconfig'
   "" Programming
+  Plug 'p00f/clangd_extensions.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
-  Plug 'glepnir/lspsaga.nvim'
+  Plug 'tami5/lspsaga.nvim'
   Plug 'neomake/neomake'
   Plug 'sbdchd/neoformat'
   Plug 'Shougo/echodoc'
@@ -94,9 +99,12 @@ call plug#begin()
   Plug 'elixir-editors/vim-elixir' 
   Plug 'ray-x/lsp_signature.nvim'
   "" Themes
+  Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
   Plug 'dracula/vim'
+  Plug 'tiagovla/tokyodark.nvim'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'EdenEast/nightfox.nvim'
+  Plug 'Shatur/neovim-ayu'
 "  Plug 'gruvbox-community/gruvbox'
   Plug 'rktjmp/lush.nvim'
   Plug 'ellisonleao/gruvbox.nvim'
@@ -161,7 +169,8 @@ nnoremap <C-m> :Neoformat<CR>
 nnoremap <C-x> :SymbolsOutline<CR>
 
 "" THEME
-colorscheme nightfox
+"colorscheme PaperColor
+colorscheme gruvbox-baby
 set background=dark
 
 "" Plugins settings: 
@@ -219,9 +228,42 @@ let g:neomake_verbose=3
 "" @RAINBOW
 let g:rainbow_active = 1
 "" @NEOFORMAT
-let g:neoformat_cpp_clangformat = {
-  \ 'exe': 'clang-format',
-  \ 'args': ['--style="{IndentWidth: 2}"'],
-  \}
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_c = ['clangformat']
+let g:neoformat_cpp_clangformat = {
+  \ 'exe': 'clang-format',
+  \ 'args':
+  \['--style="{ TabWidth: 2,
+  \ColumnLimit: 130,
+  \UseTab: Never,
+  \CompactNamespaces: false,
+  \Cpp11BracedListStyle: true,
+  \SortIncludes: false,
+  \IncludeBlocks: Merge,
+  \SpaceBeforeParens: Never,
+  \AlignAfterOpenBracket: Align,
+  \AlignConsecutiveMacros: true,
+  \AlignConsecutiveAssignments: true,
+  \AlignConsecutiveDeclarations: false,
+  \AlignEscapedNewlines: Left,
+  \AlignOperands: true,
+  \AlignTrailingComments: true,
+  \AllowAllArgumentsOnNextLine: true,
+  \AllowAllConstructorInitializersOnNextLine: true,
+  \AllowAllParametersOfDeclarationOnNextLine: true,
+  \AllowShortBlocksOnASingleLine: Empty,
+  \AllowShortCaseLabelsOnASingleLine: false,
+  \AllowShortIfStatementsOnASingleLine: Never,
+  \AllowShortLoopsOnASingleLine: false,
+  \BreakBeforeBinaryOperators: NonAssignment,
+  \BreakConstructorInitializers: BeforeColon,
+  \BreakStringLiterals: true,
+  \DerivePointerAlignment: true,
+  \FixNamespaceComments: true,
+  \Language: Cpp,
+  \NamespaceIndentation: All,
+  \PointerAlignment: Right,
+  \ReflowComments: true,
+  \Standard: "c++17",
+  \}"'],
+  \}
