@@ -1,3 +1,20 @@
+vim.opt.termguicolors = true
+require('numb').setup()
+require('aerial').setup({})
+require('neogen').setup {}
+require("todo-comments").setup {}
+ require("twilight").setup {
+   expand = {
+     "function",
+     "method",
+   }
+ }
+require('hlargs').setup()
+require("virt-column").setup{}
+
+require('quantum').setup()
+require("nvim-gps").setup()
+require('telescope').setup{}
 require('pretty-fold').setup{}
 require('pretty-fold.preview').setup()
 require 'gitsigns'.setup()
@@ -13,7 +30,7 @@ require'nvim-treesitter.configs'.setup {
 }
 require 'trouble'.setup {}
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
+--[[    ensure_installed = "maintained",]]
     highlight = {enable = true}
 }
 
@@ -21,34 +38,64 @@ local cmp = require 'cmp'
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
-
-
-cmp.setup({
+ cmp.setup({
     snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
     },
-    mapping = {
-        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-        ['<C-y>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close()
-        }),
-        ['<CR>'] = cmp.mapping.confirm({select = true})
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
     },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
     sources = cmp.config.sources({
-        {name = 'nvim_lsp'}
-    }, {{name = 'buffer'}})
-})
+      { name = 'nvim_lsp' },
+      { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
 
-cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
-cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
-})
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
 
 local on_attach = function(client, bufnr)
     require"lsp_signature".setup()
@@ -61,7 +108,7 @@ local on_attach = function(client, bufnr)
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
     local opts = {noremap = true, silent = true}
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gK', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<L>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', '<space>wa',
@@ -72,7 +119,7 @@ local on_attach = function(client, bufnr)
                    '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
                    opts)
     buf_set_keymap('n', '<space>D',
-                   '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+                   '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 --    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
 --                   opts)
@@ -134,7 +181,6 @@ require("lualine").setup({
 })
 
 
-
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
@@ -193,12 +239,12 @@ require'nvim-tree'.setup {
     hijack_netrw = true,
     open_on_setup = true,
     ignore_ft_on_setup = {},
-    auto_close = false,
+--    auto_close = false,
     open_on_tab = false,
     update_to_buf_dir = {
         enable = true,
         auto_open = true
-    },
+   },
     hijack_cursor = false,
     update_cwd = false,
 
@@ -220,5 +266,83 @@ require'nvim-tree'.setup {
             custom_only = false,
             list = {{key = "t", cb = tree_cb("tabnew")}}
         }
-    }
+    },
+    git = {
+      ignore = false,
+    },
+}
+
+vim.api.nvim_set_keymap(
+  'n',
+  'gK',
+  '<Cmd>lua vim.lsp.buf.hover()<CR>',
+  {noremap = true, silent = true}
+)
+
+require("clangd_extensions").setup {
+    server = {
+        nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  cmd = {
+    "/usr/local/bin/clangd",
+    "--background-index",
+    "--suggest-missing-includes",
+    "--clang-tidy",
+    "--header-insertion=iwyu"
+  },
+  root_dir = nvim_lsp.util.root_pattern(
+    "compile_commands.json",
+    "compile_flags.txt",
+    ".git"
+  )
+}
+
+    },
+    extensions = {
+        autoSetHints = true,
+        hover_with_actions = true,
+        inlay_hints = {
+            only_current_line = false,
+            only_current_line_autocmd = "CursorHold",
+            show_parameter_hints = true,
+            parameter_hints_prefix = "<- ",
+            other_hints_prefix = "=> ",
+            max_len_align = false,
+            max_len_align_padding = 1,
+            right_align = false,
+            right_align_padding = 7,
+            highlight = "Comment",
+            priority = 100,
+        },
+        ast = {
+            role_icons = {
+                type = "",
+                declaration = "",
+                expression = "",
+                specifier = "",
+                statement = "",
+                ["template argument"] = "",
+            },
+
+            kind_icons = {
+                Compound = "",
+                Recovery = "",
+                TranslationUnit = "",
+                PackExpansion = "",
+                TemplateTypeParm = "",
+                TemplateTemplateParm = "",
+                TemplateParamObject = "",
+            },
+
+            highlights = {
+                detail = "Comment",
+            },
+        memory_usage = {
+            border = "none",
+        },
+        symbol_info = {
+            border = "none",
+        },
+    },
+}
 }
