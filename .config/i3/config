@@ -1,5 +1,6 @@
 #i3 
-exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/Wallpapers/gnu.jpg
+
+exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/Wallpapers/lofi-coffee.jpg
 
 bar {
  status_command i3status #--config /home/ewarchul/.config/i3status/config 
@@ -9,7 +10,7 @@ bar {
  colors {
    background #000000
    statusline #FFFFFF
-   separator  #FFBED5
+   separator  #9777EF
    focused_workspace  #D00909 #FF7EE4 #FFFFFF
  }
 }
@@ -37,7 +38,7 @@ bindsym $mod+Return exec /home/ewarchul/.cargo/bin/alacritty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun -show-icons
 
 # change focus
 bindsym $mod+j focus left
