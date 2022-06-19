@@ -21,6 +21,12 @@ set mouse=a
 
 set filetype=on
 
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=234
+
 
 function Setup_tabs()
   set ruler
@@ -45,12 +51,17 @@ function Setup_tabs()
 endfunction
 
 augroup myautocmds 
-  au FileType * echom "test"
   au FileType * :call Setup_tabs()
 augroup END
 
 call plug#begin()
 """ Interface
+  Plug 'onsails/lspkind.nvim'
+  Plug 'nacro90/numb.nvim'
+  Plug 'MunifTanjim/nui.nvim'
+  Plug 'stevearc/aerial.nvim'
+  Plug 'm-demare/hlargs.nvim'
+ " Plug 'nvim-neo-tree/neo-tree.nvim'
   Plug 'tamton-aquib/staline.nvim'
   Plug 'cloudhead/neovim-fuzzy'
 "  Plug 'kosayoda/nvim-lightbulb'
@@ -68,14 +79,17 @@ call plug#begin()
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
+  Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/vim-vsnip-integ'
   Plug 'nvim-lua/popup.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'liuchengxu/vista.vim'
-Plug 'nvim-lualine/lualine.nvim'
+  Plug 'nvim-lualine/lualine.nvim'
 "  Plug 'famiu/feline.nvim'
   Plug 'nvim-lua/plenary.nvim'
+  Plug 'folke/todo-comments.nvim'
+  Plug 'folke/twilight.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 "  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
   Plug 'f-person/git-blame.nvim'
@@ -84,9 +98,13 @@ Plug 'nvim-lualine/lualine.nvim'
 "  Plug 'hrsh7th/nvim-compe'
   Plug 'alvarosevilla95/luatab.nvim'
   Plug 'neovim/nvim-lspconfig'
+  Plug 'lukas-reineke/virt-column.nvim'
   "" Programming
+  Plug 'danymat/neogen'
+  Plug 'koenverburg/peepsight.nvim'
   Plug 'p00f/clangd_extensions.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'SmiteshP/nvim-gps'
   Plug 'nvim-treesitter/playground'
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
@@ -98,6 +116,7 @@ Plug 'nvim-lualine/lualine.nvim'
   Plug 'cdelledonne/vim-cmake' 
   Plug 'elixir-editors/vim-elixir' 
   Plug 'ray-x/lsp_signature.nvim'
+  Plug 'p00f/clangd_extensions.nvim'
   "" Themes
   Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
   Plug 'dracula/vim'
@@ -105,6 +124,11 @@ Plug 'nvim-lualine/lualine.nvim'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'EdenEast/nightfox.nvim'
   Plug 'Shatur/neovim-ayu'
+  Plug 'bluz71/vim-moonfly-colors'
+  Plug 'mangeshrex/everblush.vim'
+  Plug 'rebelot/kanagawa.nvim'
+  Plug 'Rigellute/shades-of-purple.vim'
+  Plug 'yassinebridi/vim-purpura'
 "  Plug 'gruvbox-community/gruvbox'
   Plug 'rktjmp/lush.nvim'
   Plug 'ellisonleao/gruvbox.nvim'
@@ -115,6 +139,10 @@ Plug 'nvim-lualine/lualine.nvim'
   Plug 'rose-pine/neovim'
   Plug 'sainnhe/edge'
   Plug 'mangeshrex/uwu.vim' 
+  Plug 'mastertinner/nvim-quantum'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+  Plug 'sainnhe/edge'
   "" Misc
   Plug 'psliwka/vim-smoothie'
   Plug 'Yggdroot/indentLine'
@@ -124,6 +152,7 @@ Plug 'nvim-lualine/lualine.nvim'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'folke/lsp-colors.nvim'
   Plug 'vhyrro/neorg'
+  Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
   Plug 'sindrets/diffview.nvim'
 call plug#end()
 
@@ -158,6 +187,11 @@ nnoremap <silent> gh <cmd> lua require('lspsaga.provider').lsp_finder()<CR>
 nnoremap <silent> gy <cmd> lua require('lspsaga.rename').rename()<CR>
 nnoremap <silent> gd <cmd> lua require('lspsaga.provider').preview_definition()<CR>
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 nnoremap <C-\> :ArgWrap<CR>
 nnoremap <C-]> <C-w><C-]><C-w>T
 nnoremap <C-LEFT> <C-W><LEFT>
@@ -165,13 +199,22 @@ nnoremap <C-RIGHT> <C-W><RIGHT>
 nnoremap <C-DOWN> <C-W><DOWN>
 nnoremap <C-UP> <C-W><UP>
 
-nnoremap <C-m> :Neoformat<CR>
+nnoremap <C-k> :Neoformat<CR>
 nnoremap <C-x> :SymbolsOutline<CR>
+nnoremap <C-s> :ClangdSwitchSourceHeader<CR>
+
+
+map gx <Cmd>call jobstart(["xdg-open", expand ("<cfile>")])<CR>
 
 "" THEME
 "colorscheme PaperColor
-colorscheme gruvbox-baby
-set background=dark
+"colorscheme gruvbox-baby
+let g:edge_style = 'aura'
+let g:edge_better_performance = 1
+colorscheme kanagawa
+"colorscheme edge
+"set background=dark
+"highlight Normal guibg='#202020'
 
 "" Plugins settings: 
 
@@ -216,13 +259,10 @@ let g:nvim_tree_icons = {
     \     'error': "",
     \   }
     \ }
-
-nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <C-n> :NvimTreeOpen<CR>
 
 " a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
+"highlight NvimTreeFolderIcon guibg=blue
 "" @NEOMAKE
 let g:neomake_verbose=3
 "" @RAINBOW
@@ -267,3 +307,4 @@ let g:neoformat_cpp_clangformat = {
   \Standard: "c++17",
   \}"'],
   \}
+
