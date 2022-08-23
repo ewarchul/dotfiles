@@ -1,4 +1,8 @@
 vim.opt.termguicolors = true
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+require('nvim_context_vt').setup({})
 require('numb').setup()
 require('aerial').setup({})
 require('neogen').setup {}
@@ -15,6 +19,7 @@ require("virt-column").setup{}
 require('quantum').setup()
 require("nvim-gps").setup()
 require('telescope').setup{}
+require("telescope").load_extension "file_browser"
 require('pretty-fold').setup{}
 require('pretty-fold.preview').setup()
 require 'gitsigns'.setup()
@@ -99,6 +104,7 @@ saga.init_lsp_saga()
 
 local on_attach = function(client, bufnr)
     require"lsp_signature".setup()
+    require"aerial".setup()
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
@@ -198,11 +204,19 @@ local cb = require'diffview.config'.diffview_callback
 
 require'diffview'.setup {
     diff_binaries = false,
-    file_panel = {
-        position = "left",
-        width = 35,
-        height = 10
-    },
+
+      file_panel = {
+        listing_style = "tree",             -- One of 'list' or 'tree'
+        tree_options = {                    -- Only applies when listing_style is 'tree'
+          flatten_dirs = true,              -- Flatten dirs that only contain one single dir
+          folder_statuses = "only_folded",  -- One of 'never', 'only_folded' or 'always'.
+        },
+        win_config = {                      -- See |diffview-config-win_config|
+          position = "left",
+          width = 35,
+        },
+      },
+
     key_bindings = {
         disable_defaults = false,
         view = {
@@ -346,3 +360,30 @@ require("clangd_extensions").setup {
     },
 }
 }
+
+
+require("github-theme").setup({
+  theme_style = "dark",
+  function_style = "italic",
+  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  colors = {hint = "orange", error = "#ff0000"},
+
+  -- Overwrite the highlight groups
+  overrides = function(c)
+    return {
+      htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
+      DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
+      -- this will remove the highlight groups
+      TSField = {},
+    }
+  end
+})
+
+local kmap = vim.keymap.set
+
+-- F5 processes the document once, and refreshes the view
+kmap('i','<F5>', function() require("knap").process_once() end)
+kmap('v','<F5>', function() require("knap").process_once() end)
+kmap('n','<F5>', function() require("knap").process_once() end)
