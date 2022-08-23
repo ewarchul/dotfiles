@@ -56,6 +56,11 @@ augroup END
 
 call plug#begin()
 """ Interface
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter-context'
+  Plug 'haringsrob/nvim_context_vt'
   Plug 'onsails/lspkind.nvim'
   Plug 'nacro90/numb.nvim'
   Plug 'MunifTanjim/nui.nvim'
@@ -91,6 +96,8 @@ call plug#begin()
   Plug 'folke/todo-comments.nvim'
   Plug 'folke/twilight.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
+  Plug 'adelarsq/neoline.vim'
 "  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
   Plug 'f-person/git-blame.nvim'
   Plug 'norcalli/snippets.nvim'
@@ -100,6 +107,7 @@ call plug#begin()
   Plug 'neovim/nvim-lspconfig'
   Plug 'lukas-reineke/virt-column.nvim'
   "" Programming
+  Plug 'frabjous/knap'
   Plug 'danymat/neogen'
   Plug 'koenverburg/peepsight.nvim'
   Plug 'p00f/clangd_extensions.nvim'
@@ -118,6 +126,7 @@ call plug#begin()
   Plug 'ray-x/lsp_signature.nvim'
   Plug 'p00f/clangd_extensions.nvim'
   "" Themes
+  Plug 'projekt0n/github-nvim-theme'
   Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
   Plug 'dracula/vim'
   Plug 'tiagovla/tokyodark.nvim'
@@ -129,6 +138,8 @@ call plug#begin()
   Plug 'rebelot/kanagawa.nvim'
   Plug 'Rigellute/shades-of-purple.vim'
   Plug 'yassinebridi/vim-purpura'
+  Plug 'rktjmp/lush.nvim'
+  Plug 'alaric/nortia.nvim'
 "  Plug 'gruvbox-community/gruvbox'
   Plug 'rktjmp/lush.nvim'
   Plug 'ellisonleao/gruvbox.nvim'
@@ -191,6 +202,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 nnoremap <C-\> :ArgWrap<CR>
 nnoremap <C-]> <C-w><C-]><C-w>T
@@ -200,7 +212,9 @@ nnoremap <C-DOWN> <C-W><DOWN>
 nnoremap <C-UP> <C-W><UP>
 
 nnoremap <C-k> :Neoformat<CR>
+nnoremap <C-f> :Telescope file_browser<CR>
 nnoremap <C-x> :SymbolsOutline<CR>
+nnoremap <C-a> :AerialOpen<CR>
 nnoremap <C-s> :ClangdSwitchSourceHeader<CR>
 
 
@@ -211,10 +225,9 @@ map gx <Cmd>call jobstart(["xdg-open", expand ("<cfile>")])<CR>
 "colorscheme gruvbox-baby
 let g:edge_style = 'aura'
 let g:edge_better_performance = 1
-colorscheme kanagawa
-"colorscheme edge
-"set background=dark
-"highlight Normal guibg='#202020'
+let g:edge_cursor = 'red'
+colorscheme edge
+
 
 "" Plugins settings: 
 
@@ -274,7 +287,7 @@ let g:neoformat_cpp_clangformat = {
   \ 'exe': 'clang-format',
   \ 'args':
   \['--style="{ TabWidth: 2,
-  \ColumnLimit: 130,
+  \ColumnLimit: 80,
   \UseTab: Never,
   \CompactNamespaces: false,
   \Cpp11BracedListStyle: true,
@@ -304,7 +317,7 @@ let g:neoformat_cpp_clangformat = {
   \NamespaceIndentation: All,
   \PointerAlignment: Right,
   \ReflowComments: true,
-  \Standard: "c++17",
+  \Standard: "c++20",
   \}"'],
   \}
 
