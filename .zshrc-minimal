@@ -1,0 +1,34 @@
+export ZSH="/home/${USER}/.oh-my-zsh"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+ZSH_THEME="half-life"
+
+plugins=(
+  zsh-completions
+  zsh-interactive-cd
+  zsh-navigation-tools
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  web-search
+  copypath
+)
+
+source $ZSH/oh-my-zsh.sh
+
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR="/home/${USER}/nvim.appimage"
+ fi
+
+ZSH_COMMAND_TIME_MIN_SECONDS=3
+ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
+ZSH_COMMAND_TIME_COLOR="cyan"
+
+
+
+alias ls="ls --color=always -a"
+alias nvim="/home/${USER}/nvim.appimage"
+alias vim="/home/${USER}/nvim.appimage"
+
+
