@@ -13,7 +13,7 @@ bootstrap() {
 }
 
 install_essentials() {
-  sudo apt install -y curl python3 build-essential automake autoconf cmake wget lua5.3 zsh fuse npm unzip ripgrep
+  sudo apt install -y python3 build-essential automake autoconf cmake wget lua5.3 zsh fuse npm unzip ripgrep
 }
 
 install_devtools() {

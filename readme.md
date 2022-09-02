@@ -1,5 +1,5 @@
 ```sh
-sudo apt update && sudo apt install -y git software-properties-common dirmngr
+sudo apt update && sudo apt install -y git curl software-properties-common dirmngr
 sudo apt update && sudo apt upgrade
 ```
 
