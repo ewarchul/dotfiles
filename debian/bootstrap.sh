@@ -1,5 +1,5 @@
-sudo apt install -y git gpg gcc g++ build-essential automake\
-  valgrind cmake wget autoconf libtool zlib1g zlib1g-dev\
+sudo apt install -y git gpg gcc-9 g++-9 build-essential automake\
+  valgrind npm cmake wget autoconf libtool zlib1g zlib1g-dev\
   libssl-dev rsync sqlite3 libsqlite3-dev libpcre++-dev\
   chromium libkeyutils-dev libselinux1-dev libkrb5-dev\
   libunistring-dev libgss-dev libpsl-dev libssh-dev\
