@@ -12,7 +12,7 @@ sudo apt install -y git gpg gcc g++ build-essential automake\
   libglx-dev libibus-1.0-dev libice-dev libicu-dev\
   libmount-dev libudev1 libuv1-dev libxml++2.6-2v5\
   libxml2-dev libxml++2.6-dev libxml-libxml-perl\
-  libxpm-dev hashdeep git-lfs libgtest-dev libz2-dev\
+  libxpm-dev hashdeep git-lfs libgtest-dev libbz2-dev\
   libcap-dev libdbus-1-dev libegl-dev libegl1-mesa-dev\
   python3-setuptools python3-empy python3-yaml python3-wheel
   
