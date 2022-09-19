@@ -30,12 +30,14 @@ return require('packer').startup(function(use)
 -- Git
   use 'lewis6991/gitsigns.nvim'
   use 'f-person/git-blame.nvim'
+  use 'kdheepak/lazygit.nvim'
 -- TreeSitter
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'haringsrob/nvim_context_vt'
 -- Interface tweaks
+  use  'fgheng/winbar.nvim'
   use 'nacro90/numb.nvim'
   use 'stevearc/aerial.nvim'
   use 'm-demare/hlargs.nvim'
@@ -51,7 +53,7 @@ return require('packer').startup(function(use)
   use 'folke/todo-comments.nvim'
   use 'folke/twilight.nvim'
   use 'norcalli/snippets.nvim'
-  use 'SmiteshP/nvim-gps'
+  use 'SmiteshP/nvim-navic'
   use 'alvarosevilla95/luatab.nvim'
   use 'lukas-reineke/virt-column.nvim'
   use 'koenverburg/peepsight.nvim'
@@ -84,12 +86,12 @@ return require('packer').startup(function(use)
   use 'rktjmp/lush.nvim'
   use 'alaric/nortia.nvim'
   use 'ellisonleao/gruvbox.nvim'
-  use  'sonph/onehalf'
+  use 'sonph/onehalf'
   use 'Shadorain/shadotheme'
   use 'ray-x/aurora'
-  use  'folke/tokyonight.nvim'
+  use 'folke/tokyonight.nvim'
   use 'rose-pine/neovim'
-  use 'sainnhe/edge'
+  use 'ewarchul/edge'
   use 'mangeshrex/uwu.vim'
   use 'mastertinner/nvim-quantum'
   use 'sheerun/vim-polyglot'
@@ -97,6 +99,7 @@ return require('packer').startup(function(use)
   use {'ray-x/starry.nvim', setup = function()
     vim.g.starry_italic_comments = true
   end}
+  use 'Mofiqul/adwaita.nvim'
 --  Misc
   use 'psliwka/vim-smoothie'
   use 'xolox/vim-misc'
@@ -104,5 +107,10 @@ return require('packer').startup(function(use)
   use 'p00f/nvim-ts-rainbow'
   use 'folke/lsp-colors.nvim'
   use 'sindrets/diffview.nvim'
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
+
 end)
 

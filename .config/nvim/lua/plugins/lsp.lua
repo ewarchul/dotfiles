@@ -1,6 +1,8 @@
+local navic = require("nvim-navic")
+
 local on_attach = function(client, bufnr)
     require"lsp_signature".setup()
-    require"aerial".setup()
+    navic.attach(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
@@ -58,18 +60,29 @@ nvim_lsp.r_language_server.setup {
 }
 
 
-nvim_lsp.clangd.setup {
-  on_attach = on_attach,
-  cmd = {
-    "/usr/local/bin/clangd",
-    "--background-index",
-    "--suggest-missing-includes",
-    "--clang-tidy",
-    "--header-insertion=iwyu"
-  },
-  root_dir = nvim_lsp.util.root_pattern(
-    "compile_commands.json",
-    "compile_flags.txt",
-    ".git"
-  )
-}
+--[[nvim_lsp.clangd.setup {]]
+  --[[on_attach = on_attach,]]
+  --[[cmd = {]]
+    --[["/usr/local/bin/clangd",]]
+    --[["--background-index",]]
+    --[["--suggest-missing-includes",]]
+    --[["--clang-tidy",]]
+    --[["--header-insertion=iwyu"]]
+  --[[},]]
+  --[[root_dir = nvim_lsp.util.root_pattern(]]
+    --[["compile_commands.json",]]
+    --[["compile_flags.txt",]]
+    --[[".git"]]
+  --[[)]]
+--[[}]]
+
+require("lualine").setup({
+    sections = {
+        lualine_c = {
+            { navic.get_location, cond = navic.is_available },
+        }
+    }
+})
+
+require("winbar").setup({})
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"

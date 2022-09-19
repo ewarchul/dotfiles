@@ -10,7 +10,6 @@ require("twilight").setup {expand = {"function", "method"}}
 require('hlargs').setup()
 require("virt-column").setup{}
 require('quantum').setup()
-require("nvim-gps").setup()
 require('telescope').setup{}
 require("telescope").load_extension "file_browser"
 require 'gitsigns'.setup()
@@ -30,15 +29,6 @@ require'nvim-treesitter.configs'.setup {
     highlight = {enable = true}
 }
 
-local gps = require("nvim-gps")
-require("lualine").setup({
-	sections = {
-			lualine_c = {
-				{ gps.get_location, cond = gps.is_available },
-			}
-	}
-})
-
 local parser_configs = require 'nvim-treesitter.parsers'.get_parser_configs()
 parser_configs.norg = {
     install_info = {
@@ -49,3 +39,18 @@ parser_configs.norg = {
 }
 local saga = require('lspsaga')
 --saga.init_lsp_saga()
+
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.stylua,
+        require("null-ls").builtins.formatting.black,
+--[[        require("null-ls").builtins.formatting.clang_format,]]
+        --[[require("null-ls").builtins.formatting.cmake_format,]]
+        --[[require("null-ls").builtins.diagnostics.eslint,]]
+        --[[require("null-ls").builtins.completion.spell,]]
+    },
+})
+
+
+-- MarkdownPreview settings
+vim.g.mkdp_theme = "dark"
