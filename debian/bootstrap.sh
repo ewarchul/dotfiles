@@ -1,5 +1,5 @@
 sudo apt install -y git gpg gcc-9 g++-9 build-essential automake\
-  valgrind npm cmake wget autoconf libtool zlib1g zlib1g-dev\
+  valgrind npm lldb cmake wget autoconf libtool zlib1g zlib1g-dev\
   libssl-dev rsync sqlite3 libsqlite3-dev libpcre++-dev\
   chromium libkeyutils-dev libselinux1-dev libkrb5-dev\
   libunistring-dev libgss-dev libpsl-dev libssh-dev\
@@ -14,6 +14,8 @@ sudo apt install -y git gpg gcc-9 g++-9 build-essential automake\
   libxml2-dev libxml++2.6-dev libxml-libxml-perl\
   libxpm-dev hashdeep git-lfs libgtest-dev libbz2-dev\
   libcap-dev libdbus-1-dev libegl-dev libegl1-mesa-dev\
+  libxslt-dev libdbd-sqlite3-perl libspreadsheet-parseexcel-perl\
+  libspreadsheet-writeexcel-perl libtext-csv-perl libdbi-perl\
   python3-setuptools python3-empy python3-yaml python3-wheel
   
   
