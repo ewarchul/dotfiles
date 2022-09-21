@@ -1,6 +1,8 @@
+#!/usr/bin/env bash
+
 sudo apt install -y git gpg gcc-9 g++-9 build-essential automake\
   valgrind npm lldb cmake wget autoconf libtool zlib1g zlib1g-dev\
-  libssl-dev rsync sqlite3 libsqlite3-dev libpcre++-dev\
+  libssl-dev rsync texinfo sqlite3 libsqlite3-dev libpcre++-dev\
   chromium libkeyutils-dev libselinux1-dev libkrb5-dev\
   libunistring-dev libgss-dev libpsl-dev libssh-dev\
   libcurl4-openssl-dev libnghttp2-dev uuid-dev libncurses5\
@@ -23,23 +25,23 @@ wget https://github.com/hyperrealm/libconfig/archive/refs/tags/v1.7.2.tar.gz
 tar xvf v1.7.2.tar.gz
 cd libconfig-1.7.2
 autoreconf && ./configure && make -j$(nproc) && sudo make install
-cd ..
+cd $HOME
 
 wget https://github.com/protocolbuffers/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
 tar xf protobuf-2.5.0.tar.gz
 cd protobuf-2.5.0
 ./configure && make -j$(nproc) && sudo make install
-cd ..
+cd $HOME
 
 wget https://github.com/warmcat/libwebsockets/archive/refs/tags/v2.4.2.tar.gz
 tar xf v2.4.2.tar.gz
 cd libwebsockets-2.4.2
 mkdir build && cd build
 cmake .. && make -j$(nproc) && sudo make install
-cd ..
+cd $HOME
 
 wget https://github.com/apache/xerces-c/archive/refs/tags/v3.1.1.tar.gz
 tar xf v3.1.1.tar.gz
 cd xerces-c-3.1.1
 ./reconf && ./configure --disable-dependency-tracking && make && sudo make install
-cd ..
+cd $HOME
