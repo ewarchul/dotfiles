@@ -1,5 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
 require('nvim_context_vt').setup({})
 require('numb').setup()
 require('aerial').setup({})
@@ -40,17 +38,8 @@ parser_configs.norg = {
 local saga = require('lspsaga')
 --saga.init_lsp_saga()
 
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.formatting.stylua,
-        require("null-ls").builtins.formatting.black,
---[[        require("null-ls").builtins.formatting.clang_format,]]
-        --[[require("null-ls").builtins.formatting.cmake_format,]]
-        --[[require("null-ls").builtins.diagnostics.eslint,]]
-        --[[require("null-ls").builtins.completion.spell,]]
-    },
-})
-
 
 -- MarkdownPreview settings
 vim.g.mkdp_theme = "dark"
+require("toggleterm").setup{}
+

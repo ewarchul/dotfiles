@@ -13,6 +13,8 @@ plugins=(
   copypath
 )
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 source $ZSH/oh-my-zsh.sh
 
  if [[ -n $SSH_CONNECTION ]]; then
@@ -26,9 +28,15 @@ ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
 ZSH_COMMAND_TIME_COLOR="cyan"
 
 
+setxkbmap -layout pl
 
-alias ls="ls --color=always -a"
+alias ls="lsd"
 alias nvim="/home/${USER}/nvim.appimage"
 alias vim="/home/${USER}/nvim.appimage"
+alias icat="kitty +kitten icat"
 
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

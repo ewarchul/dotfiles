@@ -4,9 +4,9 @@ return require('packer').startup(function(use)
 -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 -- LSP
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
+  use {
+    "neovim/nvim-lspconfig",
+  }
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'onsails/lspkind.nvim'
   use 'ray-x/lsp_signature.nvim'
@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
 -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+-- Terminal
+  use 'akinsho/toggleterm.nvim'
 -- Git
   use 'lewis6991/gitsigns.nvim'
   use 'f-person/git-blame.nvim'
@@ -65,6 +67,7 @@ return require('packer').startup(function(use)
   use 'neomake/neomake'
   use 'sbdchd/neoformat'
   use 'cdelledonne/vim-cmake'
+ -- use { 'mhartington/formatter.nvim' }
   use 'folke/trouble.nvim'
 -- C++
   use 'p00f/clangd_extensions.nvim'

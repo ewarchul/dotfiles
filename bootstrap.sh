@@ -19,10 +19,10 @@ install_essentials() {
 install_devtools() {
   # install ohmyzsh in unattended manner
   echo "Installing oh my zsh..."
-  if [ ! -d "${HOME}/.oh-my-zsh" ]; then 
+  if [ ! -d "${HOME}/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  setup_zsh
-  else 
+    setup_zsh
+  else
     echo "Oh my zsh is already installed. Skipping."
   fi
 
@@ -34,7 +34,7 @@ install_devtools() {
     mv nvim.appimage ~/nvim.appimage
     # install plugin manager for the neovim
     git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  else 
+  else
     echo "Neovim is already installed. Skipping"
   fi
 
@@ -42,7 +42,7 @@ install_devtools() {
     echo "Installing lazygit (${LAZYGIT_VERSION})..."
     curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
     sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
-  else 
+  else
     echo "Lazygit is already installed. Skipping"
   fi
 }

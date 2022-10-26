@@ -1,3 +1,4 @@
+
 local navic = require("nvim-navic")
 
 local on_attach = function(client, bufnr)
@@ -10,7 +11,7 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_option(bufnr, ...)
     end
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-    local opts = {noremap = true, silent = true}
+    local opts = { noremap=true, silent=true }
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gK', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
@@ -22,8 +23,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>wl',
                    '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
                    opts)
-    buf_set_keymap('n', '<space>D',
-                   '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 --    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
 --                   opts)
@@ -37,8 +37,6 @@ local on_attach = function(client, bufnr)
                    opts)
     buf_set_keymap('n', '<space>q',
                    '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>",
-                   opts)
 end
 
 
@@ -60,15 +58,21 @@ nvim_lsp.r_language_server.setup {
 }
 
 
---[[nvim_lsp.clangd.setup {]]
+nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  cmd = {
+    "/usr/local/bin/clangd",
+    "--background-index",
+    "--suggest-missing-includes",
+    "--clang-tidy",
+    "--header-insertion=iwyu"
+  },
+}
   --[[on_attach = on_attach,]]
   --[[cmd = {]]
     --[["/usr/local/bin/clangd",]]
     --[["--background-index",]]
-    --[["--suggest-missing-includes",]]
-    --[["--clang-tidy",]]
-    --[["--header-insertion=iwyu"]]
-  --[[},]]
+      --[[},]]
   --[[root_dir = nvim_lsp.util.root_pattern(]]
     --[["compile_commands.json",]]
     --[["compile_flags.txt",]]
@@ -86,3 +90,4 @@ require("lualine").setup({
 
 require("winbar").setup({})
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
