@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'williamboman/nvim-lsp-installer'
+  use 'mfussenegger/nvim-dap'
 -- Status lines
   use 'tamton-aquib/staline.nvim'
   use 'nvim-lualine/lualine.nvim'

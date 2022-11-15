@@ -1,4 +1,4 @@
 -- aliases
 local cmd = vim.cmd
 
-cmd 'colorscheme ayu'
+cmd 'colorscheme rose-pine'
