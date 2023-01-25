@@ -1,6 +1,8 @@
 export ZSH="/home/${USER}/.oh-my-zsh"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+source "$HOME/.profile"
+
 ZSH_THEME="half-life"
 
 plugins=(
@@ -40,3 +42,22 @@ alias icat="kitty +kitten icat"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/home/ewarchul/.bun/_bun" ] && source "/home/ewarchul/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# go
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
+alias cmd="mkdir build && cmake -DCMAKE_BUILD_TYPE=Debug -B build -S ."
+alias cmr="mkdir build && cmake -DCMAKE_BUILD_TYPE=Release -B build -S ."
+alias rcm="rm -r build && cmd"
+alias cmb="cmake --build build -j $(nproc)"
+alias j="just"

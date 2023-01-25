@@ -7,7 +7,7 @@ general {
 order += "volume master0"
 order += "disk /"
 order += "memory"
-order += "cpu_temperature 0"
+#order += "cpu_temperature 0"
 order += "load"
 order += "tztime local"
 
@@ -37,7 +37,5 @@ disk "/" {
 volume master0 {
   format = "🔊 :: %volume"
   format_muted = "Phones ♪: muted (%volume)"
-  device = hw:0
-  mixer = "Master"
-  mixer_idx = 0
+  device = "default"
 }

@@ -3,45 +3,44 @@ env:
   WINIT_X11_SCALE_FACTOR: "1"
 font:
   size: 17
+# Colors (Gruvbox dark)
 colors:
+  # Default colors
   primary:
-    background: "0x232136"
-    foreground: "0xe0def4"
-  cursor:
-    text: "0xe0def4"
-    cursor: "0x56526e"
-  vi_mode_cursor:
-    text: "0xe0def4"
-    cursor: "0x56526e"
-  line_indicator:
-    foreground: None
-    background: None
-  selection:
-    text: "0xe0def4"
-    background: "0x44415a"
-  normal:
-    black: "0x393552"
-    red: "0xeb6f92"
-    green: "0x3e8fb0"
-    yellow: "0xf6c177"
-    blue: "0x9ccfd8"
-    magenta: "0xc4a7e7"
-    cyan: "0xea9a97"
-    white: "0xe0def4"
-  bright:
-    black: "0x6e6a86"
-    red: "0xeb6f92"
-    green: "0x3e8fb0"
-    yellow: "0xf6c177"
-    blue: "0x9ccfd8"
-    magenta: "0xc4a7e7"
-    cyan: "0xea9a97"
-    white: "0xe0def4"
-  hints:
-    start:
-      foreground: "#908caa"
-      background: "#2a273f"
-    end:
-      foreground: "#6e6a86"
-      background: "#2a273f"
+    background: '0x1C1C26'
+    foreground: '0xffffff'
 
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x1C1C26'
+    cursor: '0xffffff'
+
+  # Normal colors
+  normal:
+    black:   '0x1C1C26'
+    red:     '0xFDDD4E'
+    green:   '0x7E8772'
+    yellow:  '0xFFA263'
+    blue:    '0x3083DC'
+    magenta: '0xCD3F45'
+    cyan:    '0xC1B28E'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0x878897'
+    red:     '0xFDDD4E'
+    green:   '0x7E8772'
+    yellow:  '0xFFA263'
+    blue:    '0x3083DC'
+    magenta: '0xCD3F45'
+    cyan:    '0xC1B28E'
+    white:   '0xcacadc'
+
+  indexed_colors:
+    - { index: 16, color: '0x453E8B' }
+    - { index: 17, color: '0x7351FE' }
+    - { index: 18, color: '0x223249' }
+    - { index: 19, color: '0x404058' }
+    - { index: 20, color: '0xa8a9b9' }
+    - { index: 21, color: '0x6159B5' }
