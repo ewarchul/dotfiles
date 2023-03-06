@@ -1,21 +1,21 @@
 [global]
    
     ### Display ###
-    monitor = 0
     width = 300
-    height = 300
-    origin = top-right
+    height = 200
+    origin = top-left
     scale = 0
 
     # Display notifications on monitor with mouse focus
     follow = mouse
     # Set {width}x{height} and {x_pos}+{y_pos}
+    geometry = "400x20-10+50"
     # Show number of hidden notifications
     indicate_hidden = yes
     # Shrink window if smaller than width
     shrink = no
     # Set transparency of notifications
-    transparency = 1
+    transparency = 0.8
     # Height of whole notification    
     # Height of seperators
     separator_height = 2
@@ -24,9 +24,9 @@
     # Horizontal padding
     horizontal_padding = 8
     # Width of frame around window
-    frame_width = 1
+    frame_width = 10
     # Color of frame around window
-    frame_color = "#4287f5"
+    frame_color = "#428"
     # Sort messages by urgency
     sort = yes
     # Idle seconds
@@ -56,7 +56,7 @@
     # Show age of message if message is older than x seconds
     show_age_threshold = -1
     # Split notifications into multiple lines
-    word_wrap = no
+    word_wrap = yes
     # If message too long, add ellipsize to...
     ellipsize = middle
     # Ignore newlines in notifications
@@ -108,9 +108,9 @@
 [urgency_normal]
 
     # Normal urgency notifications
-    background = "#202632"
-    foreground = "#ffffff"
-    timeout = 5
+    background = "#000"
+    foreground = "#00FFaa"
+    timeout = 4
 
 [urgency_critical]
 

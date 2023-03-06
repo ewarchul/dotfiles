@@ -1,5 +1,6 @@
 require('windows').setup()
-
+require'range-highlight'.setup{}
+require"fidget".setup{}
 
 require("onedark").setup({
 	style = "warmer",

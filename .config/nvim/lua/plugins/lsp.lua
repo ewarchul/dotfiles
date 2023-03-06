@@ -1,4 +1,9 @@
 local navic = require("nvim-navic")
+require("lsp_lines").setup()
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 local on_attach = function(client, bufnr)
 	require("lsp_signature").setup()
@@ -43,6 +48,11 @@ end)
 
 nvim_lsp.r_language_server.setup({
 	on_attach = on_attach,
+})
+
+nvim_lsp.zls.setup({
+	on_attach = on_attach,
+	filetypes = { 'zig' }
 })
 
 nvim_lsp.clangd.setup({

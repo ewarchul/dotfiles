@@ -5,6 +5,13 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	-- LSP
 	use({
+  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  config = function()
+    require("lsp_lines").setup()
+  end,
+	})
+	use("j-hui/fidget.nvim")
+	use({
 		"neovim/nvim-lspconfig",
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -42,6 +49,8 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-context")
 	use("haringsrob/nvim_context_vt")
 	-- Interface tweaks
+	use("winston0410/cmd-parser.nvim")
+	use("winston0410/range-highlight.nvim")
 	use({
 		"nvim-zh/colorful-winsep.nvim",
 		config = function()
