@@ -1,9 +1,13 @@
 return {
-  { "L3MON4D3/LuaSnip" }, 
-
+	{ "L3MON4D3/LuaSnip" },
+	{
+		"folke/neodev.nvim",
+		config = function()
+			require("neodev").setup({})
+		end,
+	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/nvim-lsp-installer" },
-
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -38,8 +42,7 @@ return {
 			servers = {
 				clangd = {
 					mason = true,
-          cmd = { "clangd" },
-
+					cmd = { "clangd" },
 				},
 			},
 			-- you can do any additional lsp server setup here
@@ -138,7 +141,6 @@ return {
 			end
 		end,
 	},
-
 	-- auto completion
 	{
 		"hrsh7th/nvim-cmp",
@@ -188,7 +190,6 @@ return {
 			}
 		end,
 	},
-
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function()
@@ -198,13 +199,22 @@ return {
 			})
 		end,
 	},
-	{ "ray-x/lsp_signature.nvim" },
-	{ "p00f/clangd_extensions.nvim" },
-
+	{
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("lsp_signature").setup({})
+		end,
+	},
+	{
+		"p00f/clangd_extensions.nvim",
+		config = function()
+			require("clangd_extensions").setup({})
+		end,
+	},
 	{
 		"glepnir/lspsaga.nvim",
-		config = function() 
-      require("lspsaga").setup({})
-    end,
+		config = function()
+			require("lspsaga").setup({})
+		end,
 	},
 }
