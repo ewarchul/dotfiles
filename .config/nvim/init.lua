@@ -1,13 +1,8 @@
---- startup and add configure plugins
-require("packer_init")
-require("plugins/init")
-require("plugins/lsp")
-require("plugins/cmp")
-require("plugins/clangd")
-require("plugins/nvim-tree")
-require("plugins/diffview")
+-- Lazy packer manager bootstrap
+require("lazy_bootstrap")
+require("lazy").setup("plugins")
 
 -- load neovim options
-require("core/options")
-require("core/bindings")
-require("core/themes")
+require("core/opts")
+require("core/key_bindings")
+require("core/color")

@@ -14,8 +14,7 @@ key_mapper("n", "<C-UP", "<C-W><UP")
 
 key_mapper("n", "<C-w>", ":ArgWrap<CR>", { silent = true })
 key_mapper("n", "<C-a>", ":ClangdSwitchSourceHeader<CR>", { silent = true })
-key_mapper("n", "<C-n>", ":NvimTreeOpen<CR>", { silent = true })
-key_mapper("n", "<C-x>", ":AerialOpen<CR>", { silent = true })
+key_mapper("n", "<C-n>", ":NeoTreeShow<CR>", { silent = true })
 key_mapper("n", "<space>f", ":Neoformat<CR>", { silent = true })
 
 key_mapper("n", "gh", ":Lspsaga lsp_finder<CR>", { silent = true })
@@ -23,10 +22,9 @@ key_mapper("n", "gy", ":Lspsaga rename<CR>", { silent = true })
 key_mapper("n", "gd", ":Lspsaga peek_definition<CR>", { silent = true })
 key_mapper("n", "gc", ":Lspsaga code_action<CR>", { silent = true })
 
+key_mapper("n", "<C-f>", ":WindowsMaximize<CR>", { silent = true })
 
-key_mapper("n", "<C-f>", ":WindowsMaximize<CR>", { silent = true})
-
-key_mapper("n", "<C-s>", ":WinShift<CR>", { silent = true})
+key_mapper("n", "<C-s>", ":WinShift<CR>", { silent = true })
 
 key_mapper("n", "<Leader>ff", ":Telescope find_files<CR>")
 key_mapper("n", "<Leader>fg", ":Telescope live_grep<CR>")
