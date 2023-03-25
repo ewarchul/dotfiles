@@ -32,11 +32,9 @@ ZSH_COMMAND_TIME_COLOR="cyan"
 
 setxkbmap -layout pl
 
-alias ls="lsd"
+alias ls="ls -a --color=auto"
 alias nvim="/home/${USER}/nvim.appimage"
 alias vim="/home/${USER}/nvim.appimage"
-alias icat="kitty +kitten icat"
-
 
 
 export NVM_DIR="$HOME/.nvm"

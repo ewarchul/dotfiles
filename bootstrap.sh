@@ -2,8 +2,8 @@
 
 set -e
 
-NVIM_VERSION="0.7.2"
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
+NVIM_VERSION="0.8.3"
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-37.]+')
 
 bootstrap() {
   install_essentials
