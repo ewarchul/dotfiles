@@ -6,10 +6,12 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
 	},
 	{
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require("lualine").setup({})
-    end,
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup({
+				options = { theme = "moonbow" },
+			})
+		end,
 	},
 	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-telescope/telescope-file-browser.nvim" },

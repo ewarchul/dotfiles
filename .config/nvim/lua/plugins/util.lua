@@ -4,5 +4,11 @@ return {
 	{ "f-person/git-blame.nvim" },
 	{ "kdheepak/lazygit.nvim" },
 	{ "preservim/nerdcommenter" },
-	{"FooSoft/vim-argwrap"},
+	{ "FooSoft/vim-argwrap" },
+	{
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("symbols-outline").setup({})
+		end,
+	},
 }

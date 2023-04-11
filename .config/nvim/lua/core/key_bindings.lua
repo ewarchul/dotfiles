@@ -16,6 +16,7 @@ key_mapper("n", "<C-w>", ":ArgWrap<CR>", { silent = true })
 key_mapper("n", "<C-a>", ":ClangdSwitchSourceHeader<CR>", { silent = true })
 key_mapper("n", "<C-n>", ":NeoTreeShow<CR>", { silent = true })
 key_mapper("n", "<space>f", ":Neoformat<CR>", { silent = true })
+key_mapper("n", "<C-x>", ":AerialOpen<CR>", { silent = true })
 
 key_mapper("n", "gh", ":Lspsaga lsp_finder<CR>", { silent = true })
 key_mapper("n", "gy", ":Lspsaga rename<CR>", { silent = true })
