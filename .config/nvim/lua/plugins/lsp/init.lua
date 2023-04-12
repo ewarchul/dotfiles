@@ -191,15 +191,6 @@ return {
 		end,
 	},
 	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-			vim.diagnostic.config({
-				virtual_text = false,
-			})
-		end,
-	},
-	{
 		"ray-x/lsp_signature.nvim",
 		config = function()
 			require("lsp_signature").setup({})
