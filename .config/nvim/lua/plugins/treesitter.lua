@@ -39,7 +39,7 @@ return {
         "bash",
         "c",
         "cpp",
-        "help",
+        "vimdoc",
         "html",
         "javascript",
         "json",

@@ -3,5 +3,5 @@ return {
 	{ "luisiacc/gruvbox-baby" },
 	{ "olimorris/onedarkpro.nvim" },
 	{ "navarasu/onedark.nvim" },
-	{ "arturgoms/moonbow.nvim" },
+  { "nvimdev/zephyr-nvim" },
 }

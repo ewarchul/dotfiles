@@ -11,4 +11,6 @@ return {
 			require("symbols-outline").setup({})
 		end,
 	},
+  { "anuvyklack/pretty-fold.nvim", config = true },
+  
 }
