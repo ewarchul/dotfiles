@@ -8,6 +8,7 @@ return {
 				sort_by = "case_sensitive",
 				view = {
 					width = 30,
+          preserve_window_proportions = true,
 				},
 			})
 		end,
@@ -24,11 +25,6 @@ return {
 	{ "nvim-telescope/telescope-file-browser.nvim" },
 	{ "m-demare/hlargs.nvim" },
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
-	{
-		"anuvyklack/windows.nvim",
-		dependencies = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" },
-		config = true,
-	},
 	{ "winston0410/cmd-parser.nvim" },
 	{ "winston0410/range-highlight.nvim" },
 	{ "danilamihailov/beacon.nvim" },
