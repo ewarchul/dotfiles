@@ -13,6 +13,7 @@ return {
 			})
 		end,
 	},
+  {  "folke/trouble.nvim" },
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()

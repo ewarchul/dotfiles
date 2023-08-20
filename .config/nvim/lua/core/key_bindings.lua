@@ -36,6 +36,7 @@ key_mapper("n", "<Leader>fh", ":Telescope help_tags<CR>")
 key_mapper("n", "<Leader>l", ":LazyGit<CR>")
 
 key_mapper("n", "<Leader>t", ":ToggleTerm direction=float<CR>")
+key_mapper("n", "<Leader>x", ":Trouble<CR>")
 vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
 
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })

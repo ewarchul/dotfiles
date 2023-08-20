@@ -1,4 +1,5 @@
 return {
+	{ "nvim-tree/nvim-web-devicons" },
 	{ "neomake/neomake" },
 	{ "lewis6991/gitsigns.nvim" },
 	{ "f-person/git-blame.nvim" },
@@ -18,4 +19,5 @@ return {
 		end,
 	},
 	{ "anuvyklack/pretty-fold.nvim", config = true },
+	{ "folke/todo-comments.nvim", config = true },
 }
