@@ -59,3 +59,5 @@ alias cmr="mkdir build && cmake -DCMAKE_BUILD_TYPE=Release -B build -S ."
 alias rcm="rm -r build && cmd"
 alias cmb="cmake --build build -j $(nproc)"
 alias j="just"
+
+neofetch
