@@ -10,7 +10,7 @@ end
 key_mapper("n", "<C-LEFT>", "<C-W><LEFT>")
 key_mapper("n", "<C-RIGHT>", "<C-W><RIGHT>")
 key_mapper("n", "<C-DOWN>", "<C-W><DOWN>")
-key_mapper("n", "<C-UP", "<C-W><UP")
+key_mapper("n", "<C-UP", "<C-W><UP>")
 
 key_mapper("n", "<C-w>", ":ArgWrap<CR>", { silent = true })
 key_mapper("n", "<C-a>", ":ClangdSwitchSourceHeader<CR>", { silent = true })
