@@ -14,7 +14,7 @@ key_mapper("n", "<C-UP", "<C-W><UP")
 
 key_mapper("n", "<C-w>", ":ArgWrap<CR>", { silent = true })
 key_mapper("n", "<C-a>", ":ClangdSwitchSourceHeader<CR>", { silent = true })
-key_mapper("n", "<C-n>", ":NeoTreeShow<CR>", { silent = true })
+key_mapper("n", "<C-n>", ":NvimTreeOpen<CR>", { silent = true })
 key_mapper("n", "<space>f", ":Neoformat<CR>", { silent = true })
 key_mapper("n", "<C-x>", ":SymbolsOutlineOpen<CR>", { silent = true })
 
