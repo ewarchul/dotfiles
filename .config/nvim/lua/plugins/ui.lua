@@ -1,5 +1,6 @@
 return {
 	{ "j-hui/fidget.nvim" },
+  { "nvim-lua/plenary.nvim"},
 	{
 		"nvim-tree/nvim-tree.lua",
 		config = function()
