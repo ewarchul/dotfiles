@@ -1,10 +1,19 @@
 return {
 	{ "j-hui/fidget.nvim" },
+  { "nvim-lua/plenary.nvim"},
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			require("nvim-tree").setup({
+				sort_by = "case_sensitive",
+				view = {
+					width = 30,
+          preserve_window_proportions = true,
+				},
+			})
+		end,
 	},
+  {  "folke/trouble.nvim" },
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -17,7 +26,6 @@ return {
 	{ "nvim-telescope/telescope-file-browser.nvim" },
 	{ "m-demare/hlargs.nvim" },
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
-	{ "anuvyklack/windows.nvim", dependencies = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, config = true },
 	{ "winston0410/cmd-parser.nvim" },
 	{ "winston0410/range-highlight.nvim" },
 	{ "danilamihailov/beacon.nvim" },
@@ -31,5 +39,5 @@ return {
 			vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 		end,
 	},
-  { "RRethy/vim-illuminate" }
+	{ "RRethy/vim-illuminate" },
 }
