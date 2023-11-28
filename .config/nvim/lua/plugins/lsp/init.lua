@@ -29,10 +29,21 @@ return {
 					mason = false,
 					cmd = { "clangd" },
 				},
+
         volar = {
 					mason = false,
 					cmd = { "vue-language-server" },
 				},
+
+        ruff_lsp = {
+          mason = false,
+          cmd = { "ruff-lsp" },
+        },
+        
+        pylsp = {
+          mason = false,
+          cmd = { "pylsp" },
+        },
 			},
 			-- you can do any additional lsp server setup here
 			-- return true if you don't want this server to be setup with lspconfig

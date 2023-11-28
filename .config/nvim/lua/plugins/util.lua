@@ -1,7 +1,12 @@
 return {
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "neomake/neomake" },
-	{ "lewis6991/gitsigns.nvim" },
+	{
+    "lewis6991/gitsigns.nvim",
+      config = function()
+			require("gitsigns").setup({})
+		end,
+	},
 	{ "f-person/git-blame.nvim" },
 	{ "kdheepak/lazygit.nvim" },
 	{
@@ -20,4 +25,9 @@ return {
 	},
 	{ "anuvyklack/pretty-fold.nvim", config = true },
 	{ "folke/todo-comments.nvim", config = true },
+  {
+    "NoahTheDuke/vim-just",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "\\cjustfile", "*.just", ".justfile" },
+  }
 }

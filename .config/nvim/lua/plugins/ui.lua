@@ -1,5 +1,4 @@
 return {
-	{ "j-hui/fidget.nvim" },
   { "nvim-lua/plenary.nvim"},
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -40,4 +39,10 @@ return {
 		end,
 	},
 	{ "RRethy/vim-illuminate" },
+{
+  "j-hui/fidget.nvim",
+  opts = {
+    -- options
+  },
+}
 }

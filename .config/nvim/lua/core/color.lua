@@ -1,1 +1,1 @@
-vim.cmd("colorscheme zephyr")
+vim.cmd("colorscheme gruvbox-baby")
