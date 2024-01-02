@@ -29,22 +29,24 @@ return {
 					mason = false,
 					cmd = { "clangd" },
 				},
-
         volar = {
 					mason = false,
 					cmd = { "vue-language-server" },
 				},
-
         ruff_lsp = {
           mason = false,
           cmd = { "ruff-lsp" },
         },
-        
         pylsp = {
           mason = false,
           cmd = { "pylsp" },
-        r_language_server = {mason = true},
-        rust_analyzer = {mason = false},
+        },
+        r_language_server = {
+          mason = true
+        },
+        rust_analyzer = {
+          mason = false
+        },
         cmake = {
           mason = false,
           cmd = { "cmake-language-server" }
