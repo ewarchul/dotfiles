@@ -2,7 +2,7 @@
 env:
   WINIT_X11_SCALE_FACTOR: "1"
 font:
-  size: 16
+  size: 15.5
 # Colors (Gruvbox dark)
 colors:
   # Default colors
@@ -44,3 +44,8 @@ colors:
     - { index: 19, color: '0x404058' }
     - { index: 20, color: '0xa8a9b9' }
     - { index: 21, color: '0x6159B5' }
+window:
+  opacity: 0.8
+  dimensions:
+    columns: 100
+    lines: 40

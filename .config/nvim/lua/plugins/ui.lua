@@ -39,10 +39,8 @@ return {
 		end,
 	},
 	{ "RRethy/vim-illuminate" },
-{
-  "j-hui/fidget.nvim",
-  opts = {
-    -- options
-  },
-}
+  {
+    "j-hui/fidget.nvim",
+    opts = {},
+  }
 }

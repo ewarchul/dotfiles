@@ -43,6 +43,11 @@ return {
         pylsp = {
           mason = false,
           cmd = { "pylsp" },
+        r_language_server = {mason = true},
+        rust_analyzer = {mason = false},
+        cmake = {
+          mason = false,
+          cmd = { "cmake-language-server" }
         },
 			},
 			-- you can do any additional lsp server setup here
