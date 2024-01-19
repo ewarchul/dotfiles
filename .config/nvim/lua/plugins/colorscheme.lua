@@ -2,7 +2,6 @@ return {
 	{ "ray-x/aurora" },
 	{ "luisiacc/gruvbox-baby" },
 	{ "olimorris/onedarkpro.nvim" },
-	{ "navarasu/onedark.nvim" },
   { "nvimdev/zephyr-nvim" },
   { "NTBBloodbath/doom-one.nvim" },
   { "FrenzyExists/aquarium-vim" },
@@ -11,4 +10,12 @@ return {
   { "dasupradyumna/midnight.nvim" },
   { "nyoom-engineering/oxocarbon.nvim" },
   { "marko-cerovac/material.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "sainnhe/edge" },
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()require 'nordic' .load()end
+  }
 }

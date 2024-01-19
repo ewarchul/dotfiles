@@ -27,7 +27,18 @@ return {
 			servers = {
 				clangd = {
 					mason = false,
-					cmd = { "clangd" },
+					cmd = {
+            "clangd",
+            "--function-arg-placeholders=false",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--background-index",
+            "--completion-style=detailed",
+            "--pretty",
+            "--j=5",
+            "--clang-tidy-checks='performance-*,bugprone-*'",
+					},
+          single_file_support = true,
 				},
         volar = {
 					mason = false,
@@ -110,7 +121,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
+    	"saadparwaiz1/cmp_luasnip",
 		},
 		opts = function()
 			local cmp = require("cmp")
