@@ -2,8 +2,8 @@ return {
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "neomake/neomake" },
 	{
-    "lewis6991/gitsigns.nvim",
-      config = function()
+		"lewis6991/gitsigns.nvim",
+		config = function()
 			require("gitsigns").setup({})
 		end,
 	},
@@ -25,9 +25,23 @@ return {
 	},
 	{ "anuvyklack/pretty-fold.nvim", config = true },
 	{ "folke/todo-comments.nvim", config = true },
-  {
-    "NoahTheDuke/vim-just",
-    event = { "BufReadPre", "BufNewFile" },
-    ft = { "\\cjustfile", "*.just", ".justfile" },
-  }
+	{
+		"NoahTheDuke/vim-just",
+		event = { "BufReadPre", "BufNewFile" },
+		ft = { "\\cjustfile", "*.just", ".justfile" },
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {},
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					cpp = { "clang_format" },
+					lua = { "stylua" },
+					python = { "black" },
+					r = { "styler" },
+				},
+			})
+		end,
+	},
 }

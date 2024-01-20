@@ -1,6 +1,7 @@
 return {
+--	{ "luisiacc/gruvbox-baby" },
+  { "sainnhe/gruvbox-material" },
 	{ "ray-x/aurora" },
-	{ "luisiacc/gruvbox-baby" },
 	{ "olimorris/onedarkpro.nvim" },
   { "nvimdev/zephyr-nvim" },
   { "NTBBloodbath/doom-one.nvim" },

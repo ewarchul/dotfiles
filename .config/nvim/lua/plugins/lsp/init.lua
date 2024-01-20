@@ -48,6 +48,8 @@ return {
             "clangd",
             "--function-arg-placeholders=false",
             "--clang-tidy",
+            "--enable-config",
+            "--fallback-style=llvm",
             "--header-insertion=iwyu",
             "--background-index",
             "--completion-style=detailed",
