@@ -1,4 +1,20 @@
 return {
+  {
+    "nvimdev/lspsaga.nvim",
+    config = function()
+        require('lspsaga').setup({})
+    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts) require'lsp_signature'.setup(opts) end
+  },
+  {
+    "p00f/clangd_extensions.nvim",
+    config = function()require("clangd_extensions").setup({})end
+  },
 	{ "L3MON4D3/LuaSnip" },
 	{ "williamboman/nvim-lsp-installer" },
 	{
@@ -6,6 +22,7 @@ return {
 		dependencies = {
 			{
 				"hrsh7th/cmp-nvim-lsp",
+        "nvimdev/lspsaga.nvim",
 			},
 		},
 		---@class PluginLspOpts
@@ -160,23 +177,5 @@ return {
 				},
 			}
 		end,
-	},
-	{
-		"ray-x/lsp_signature.nvim",
-		config = function()
-			require("lsp_signature").setup({})
-		end,
-	},
-	{
-		"p00f/clangd_extensions.nvim",
-		config = function()
-			require("clangd_extensions").setup({})
-		end,
-	},
-	{
-		"glepnir/lspsaga.nvim",
-		config = function()
-			require("lspsaga").setup({})
-		end,
-	},
+	}
 }
