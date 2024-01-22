@@ -1,5 +1,5 @@
 return {
-  { "nvim-lua/plenary.nvim"},
+	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-tree/nvim-tree.lua",
 		config = function()
@@ -7,12 +7,12 @@ return {
 				sort_by = "case_sensitive",
 				view = {
 					width = 30,
-          preserve_window_proportions = true,
+					preserve_window_proportions = true,
 				},
 			})
 		end,
 	},
-  {  "folke/trouble.nvim" },
+	{ "folke/trouble.nvim" },
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
@@ -39,8 +39,8 @@ return {
 		end,
 	},
 	{ "RRethy/vim-illuminate" },
-  {
-    "j-hui/fidget.nvim",
-    opts = {},
-  }
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	},
 }

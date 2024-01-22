@@ -1,20 +1,24 @@
 return {
-  {
-    "nvimdev/lspsaga.nvim",
-    config = function()
-        require('lspsaga').setup({})
-    end,
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts) require'lsp_signature'.setup(opts) end
-  },
-  {
-    "p00f/clangd_extensions.nvim",
-    config = function()require("clangd_extensions").setup({})end
-  },
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		opts = {},
+		config = function(_, opts)
+			require("lsp_signature").setup(opts)
+		end,
+	},
+	{
+		"p00f/clangd_extensions.nvim",
+		config = function()
+			require("clangd_extensions").setup({})
+		end,
+	},
 	{ "L3MON4D3/LuaSnip" },
 	{ "williamboman/nvim-lsp-installer" },
 	{
@@ -22,7 +26,7 @@ return {
 		dependencies = {
 			{
 				"hrsh7th/cmp-nvim-lsp",
-        "nvimdev/lspsaga.nvim",
+				"nvimdev/lspsaga.nvim",
 			},
 		},
 		---@class PluginLspOpts
@@ -45,42 +49,42 @@ return {
 				clangd = {
 					mason = false,
 					cmd = {
-            "clangd",
-            "--function-arg-placeholders=false",
-            "--clang-tidy",
-            "--enable-config",
-            "--fallback-style=llvm",
-            "--header-insertion=iwyu",
-            "--background-index",
-            "--completion-style=detailed",
-            "--pretty",
-            "--j=5",
-            "--clang-tidy-checks='performance-*,bugprone-*'",
+						"clangd",
+						"--function-arg-placeholders=false",
+						"--clang-tidy",
+						"--enable-config",
+						"--fallback-style=llvm",
+						"--header-insertion=iwyu",
+						"--background-index",
+						"--completion-style=detailed",
+						"--pretty",
+						"--j=5",
+						"--clang-tidy-checks='performance-*,bugprone-*'",
 					},
-          single_file_support = true,
+					single_file_support = true,
 				},
-        volar = {
+				volar = {
 					mason = false,
 					cmd = { "vue-language-server" },
 				},
-        ruff_lsp = {
-          mason = false,
-          cmd = { "ruff-lsp" },
-        },
-        pylsp = {
-          mason = false,
-          cmd = { "pylsp" },
-        },
-        r_language_server = {
-          mason = true
-        },
-        rust_analyzer = {
-          mason = false
-        },
-        cmake = {
-          mason = false,
-          cmd = { "cmake-language-server" }
-        },
+				ruff_lsp = {
+					mason = false,
+					cmd = { "ruff-lsp" },
+				},
+				pylsp = {
+					mason = false,
+					cmd = { "pylsp" },
+				},
+				r_language_server = {
+					mason = true,
+				},
+				rust_analyzer = {
+					mason = false,
+				},
+				cmake = {
+					mason = false,
+					cmd = { "cmake-language-server" },
+				},
 			},
 			-- you can do any additional lsp server setup here
 			-- return true if you don't want this server to be setup with lspconfig
@@ -126,8 +130,8 @@ return {
 			for server, server_opts in pairs(servers) do
 				if server_opts then
 					server_opts = server_opts == true and {} or server_opts
-						setup(server)
-						ensure_installed[#ensure_installed + 1] = server
+					setup(server)
+					ensure_installed[#ensure_installed + 1] = server
 				end
 			end
 		end,
@@ -140,7 +144,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-    	"saadparwaiz1/cmp_luasnip",
+			"saadparwaiz1/cmp_luasnip",
 		},
 		opts = function()
 			local cmp = require("cmp")
@@ -179,5 +183,5 @@ return {
 				},
 			}
 		end,
-	}
+	},
 }

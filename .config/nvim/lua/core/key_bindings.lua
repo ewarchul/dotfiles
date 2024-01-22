@@ -32,7 +32,6 @@ key_mapper("n", "<Leader>fg", ":Telescope live_grep<CR>")
 key_mapper("n", "<Leader>fb", ":Telescope buffers<CR>")
 key_mapper("n", "<Leader>fh", ":Telescope help_tags<CR>")
 
-
 key_mapper("n", "<Leader>l", ":LazyGit<CR>")
 
 key_mapper("n", "<Leader>t", ":ToggleTerm direction=float<CR>")
