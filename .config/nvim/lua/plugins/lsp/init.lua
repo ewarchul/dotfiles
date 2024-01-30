@@ -58,7 +58,7 @@ return {
 						"--background-index",
 						"--completion-style=detailed",
 						"--pretty",
-						"--j=5",
+						"--j=3",
 						"--clang-tidy-checks='performance-*,bugprone-*'",
 					},
 					single_file_support = true,
