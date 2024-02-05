@@ -21,7 +21,22 @@ return {
 			})
 		end,
 	},
-	{ "nvim-telescope/telescope.nvim" },
+	{
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          previewer = true,
+          vimgrep_arguments = {
+            "rg",
+            "--line-number",
+            "--column",
+            "--smart-case",
+          }
+        }
+      })
+    end,
+	},
 	{ "nvim-telescope/telescope-file-browser.nvim" },
 	{ "m-demare/hlargs.nvim" },
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },

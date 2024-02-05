@@ -18,7 +18,7 @@ key_mapper("n", "<C-n>", ":NvimTreeOpen<CR>", { silent = true })
 key_mapper("n", "<space>f", ":lua require'conform'.format()<CR>", { silent = true })
 key_mapper("n", "<C-x>", ":Lspsaga outline<CR>", { silent = true })
 
-key_mapper("n", "gh", ":Lspsaga finder<CR>", { silent = true })
+key_mapper("n", "gh", ":Lspsaga finder ref+def+imp<CR>", { silent = true })
 key_mapper("n", "gy", ":Lspsaga rename<CR>", { silent = true })
 key_mapper("n", "gd", ":Lspsaga peek_definition<CR>", { silent = true })
 key_mapper("n", "gc", ":Lspsaga code_action<CR>", { silent = true })
