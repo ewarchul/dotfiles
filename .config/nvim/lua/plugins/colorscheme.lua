@@ -1,8 +1,16 @@
 return {
-	--	{ "luisiacc/gruvbox-baby" },
+	{ "luisiacc/gruvbox-baby" },
 	{ "sainnhe/gruvbox-material" },
+  { "navarasu/onedark.nvim",
+    config = function() 
+      require("onedark").setup {
+        style = "warmer"
+      }
+    end,
+  },
+  { "rmehri01/onenord.nvim" },
 	{ "ray-x/aurora" },
-	{ "olimorris/onedarkpro.nvim" },
+--	{ "olimorris/onedarkpro.nvim" },
 	{ "nvimdev/zephyr-nvim" },
 	{ "NTBBloodbath/doom-one.nvim" },
 	{ "FrenzyExists/aquarium-vim" },
