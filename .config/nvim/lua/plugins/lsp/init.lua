@@ -2,7 +2,11 @@ return {
 	{
 		"nvimdev/lspsaga.nvim",
 		config = function()
-			require("lspsaga").setup({})
+			require("lspsaga").setup({
+				ui = {
+          enable = true
+				},
+			})
 		end,
 	},
 	{
@@ -19,7 +23,11 @@ return {
 			require("clangd_extensions").setup({})
 		end,
 	},
-	{ "L3MON4D3/LuaSnip" },
+  {
+	  "L3MON4D3/LuaSnip",
+  	version = "v2.*", 
+  	build = "make install_jsregexp"
+  },
 	{ "williamboman/nvim-lsp-installer" },
 	{
 		"neovim/nvim-lspconfig",
