@@ -58,4 +58,5 @@ return {
 		"j-hui/fidget.nvim",
 		opts = {},
 	},
+  { "HiPhish/rainbow-delimiters.nvim"}
 }

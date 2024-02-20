@@ -4,7 +4,9 @@ return {
 		config = function()
 			require("lspsaga").setup({
 				ui = {
-          enable = true
+          enable = true,
+          code_action = ''
+
 				},
 			})
 		end,
@@ -73,7 +75,10 @@ return {
 				},
 				volar = {
 					mason = false,
-					cmd = { "vue-language-server" },
+					cmd = {
+            "/usr/bin/vue-language-server",
+            "--stdio",
+					},
 				},
 				ruff_lsp = {
 					mason = false,
@@ -93,6 +98,13 @@ return {
 					mason = false,
 					cmd = { "cmake-language-server" },
 				},
+        tsserver = {
+          mason = false,
+          cmd = {
+            "typescript-language-server",
+            "--stdio"
+          }
+        },
 			},
 			-- you can do any additional lsp server setup here
 			-- return true if you don't want this server to be setup with lspconfig
