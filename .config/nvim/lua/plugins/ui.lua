@@ -58,5 +58,11 @@ return {
 		"j-hui/fidget.nvim",
 		opts = {},
 	},
-  { "HiPhish/rainbow-delimiters.nvim"}
+  { "HiPhish/rainbow-delimiters.nvim"},
+  {
+  "nvim-zh/colorful-winsep.nvim",
+  config = true,
+  event = { "WinNew" },
+  },
+  { "ibhagwan/fzf-lua" },
 }

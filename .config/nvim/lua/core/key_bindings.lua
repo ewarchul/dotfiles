@@ -29,15 +29,19 @@ key_mapper("n", "<C-f>", ":WindowsMaximize<CR>", { silent = true })
 key_mapper("n", "<C-s>", ":WinShift<CR>", { silent = true })
 
 key_mapper("n", "<Leader>ff", ":Telescope find_files<CR>")
-key_mapper("n", "<Leader>fg", ":Telescope live_grep<CR>")
+key_mapper("n", "<Leader>fg", ":FzfLua live_grep<CR>")
 key_mapper("n", "<Leader>fb", ":Telescope buffers<CR>")
 key_mapper("n", "<Leader>fh", ":Telescope help_tags<CR>")
 
 key_mapper("n", "<Leader>l", ":LazyGit<CR>")
 
-key_mapper("n", "<Leader>t", ":ToggleTerm direction=float<CR>")
 key_mapper("n", "<Leader>x", ":Trouble document_diagnostics<CR>")
-key_mapper("n", "<Leader>v", ":TroubleClose<CR>")
+key_mapper("n", "<Leader>X", ":TroubleClose<CR>")
+
+key_mapper("n", "<Leader>s", ":split<CR>")
+key_mapper("n", "<Leader>v", ":vsplit<CR>")
+key_mapper("n", "<Leader>q", ":close<CR>")
+
 vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
 
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })

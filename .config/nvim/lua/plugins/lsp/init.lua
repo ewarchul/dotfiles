@@ -27,7 +27,7 @@ return {
 	},
   {
 	  "L3MON4D3/LuaSnip",
-  	version = "v2.*", 
+  	version = "*", 
   	build = "make install_jsregexp"
   },
 	{ "williamboman/nvim-lsp-installer" },
@@ -61,15 +61,13 @@ return {
 					cmd = {
 						"clangd",
 						"--function-arg-placeholders=false",
-						"--clang-tidy",
 						"--enable-config",
 						"--fallback-style=llvm",
 						"--header-insertion=iwyu",
 						"--background-index",
 						"--completion-style=detailed",
 						"--pretty",
-						"--j=3",
-						"--clang-tidy-checks='performance-*,bugprone-*'",
+						"--j=4",
 					},
 					single_file_support = true,
 				},
@@ -79,6 +77,7 @@ return {
             "/usr/bin/vue-language-server",
             "--stdio",
 					},
+          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
 				},
 				ruff_lsp = {
 					mason = false,
