@@ -1,16 +1,17 @@
 return {
 	{ "luisiacc/gruvbox-baby" },
 	{ "sainnhe/gruvbox-material" },
-  { "navarasu/onedark.nvim",
-    config = function() 
-      require("onedark").setup {
-        style = "warmer"
-      }
-    end,
-  },
-  { "rmehri01/onenord.nvim" },
+	{
+		"navarasu/onedark.nvim",
+		config = function()
+			require("onedark").setup({
+				style = "warmer",
+			})
+		end,
+	},
+	{ "rmehri01/onenord.nvim" },
 	{ "ray-x/aurora" },
---	{ "olimorris/onedarkpro.nvim" },
+	--	{ "olimorris/onedarkpro.nvim" },
 	{ "nvimdev/zephyr-nvim" },
 	{ "NTBBloodbath/doom-one.nvim" },
 	{ "FrenzyExists/aquarium-vim" },
@@ -29,4 +30,18 @@ return {
 			require("nordic").load()
 		end,
 	},
+	{ "blazkowolf/gruber-darker.nvim" },
+	{ "projekt0n/github-nvim-theme" },
+	{
+		"ribru17/bamboo.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("bamboo").setup({
+				-- optional configuration here
+			})
+			require("bamboo").load()
+		end,
+	},
+  { 'shaunsingh/nord.nvim' }
 }
