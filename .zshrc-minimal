@@ -1,63 +1,30 @@
-export ZSH="/home/${USER}/.oh-my-zsh"
-export PATH="$HOME/.cargo/bin:$PATH"
-
-source "$HOME/.profile"
-
-ZSH_THEME="half-life"
-
+export PATH=$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
+ 
+export ZSH="$HOME/.oh-my-zsh"
+ 
+ZSH_THEME="eastwood"
+ 
 plugins=(
+  git
   zsh-completions
   zsh-interactive-cd
   zsh-navigation-tools
   zsh-autosuggestions
   zsh-syntax-highlighting
-  web-search
-  copypath
 )
-
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-
+ 
 source $ZSH/oh-my-zsh.sh
-
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR="/home/${USER}/nvim.appimage"
- fi
-
-ZSH_COMMAND_TIME_MIN_SECONDS=3
-ZSH_COMMAND_TIME_MSG="Execution time: %s sec"
-ZSH_COMMAND_TIME_COLOR="cyan"
-
-
-setxkbmap -layout pl
-
+ 
+# User configuration
+ 
+alias j='just'
 alias ls="ls -a --color=auto"
-alias nvim="/home/${USER}/nvim.appimage"
-alias vim="/home/${USER}/nvim.appimage"
+alias lg='lazygit'
 
+alias logs='sudo journalctl -fea | lnav'
+ 
+eval "$(zoxide init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(zoxide init zsh)"
-
-# bun completions
-[ -s "/home/ewarchul/.bun/_bun" ] && source "/home/ewarchul/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# go
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
-
-alias cmd="mkdir build && cmake -DCMAKE_BUILD_TYPE=Debug -B build -S ."
-alias cmr="mkdir build && cmake -DCMAKE_BUILD_TYPE=Release -B build -S ."
-alias rcm="rm -r build && cmd"
-alias cmb="cmake --build build -j $(nproc)"
-alias j="just"
-
-neofetch

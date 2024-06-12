@@ -104,6 +104,13 @@ return {
             "--stdio"
           }
         },
+        jsonls = {
+          mason = false,
+          cmd = {
+            "vscode-json-language-server",
+            "--stdio"
+          }
+        },
 			},
 			-- you can do any additional lsp server setup here
 			-- return true if you don't want this server to be setup with lspconfig

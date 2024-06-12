@@ -16,6 +16,8 @@ key_mapper("n", "<C-w>", ":ArgWrap<CR>", { silent = true })
 key_mapper("n", "<C-a>", ":ClangdSwitchSourceHeader<CR>", { silent = true })
 key_mapper("n", "<C-n>", ":NvimTreeOpen<CR>", { silent = true })
 key_mapper("n", "<space>f", ":lua require'conform'.format()<CR>", { silent = true })
+key_mapper("n", "<leader>]", ":lua vim.lsp.buf.format()<CR>", { silent = true })
+
 key_mapper("n", "<C-x>", ":Lspsaga outline<CR>", { silent = true })
 
 key_mapper("n", "gh", ":Lspsaga finder def+ref<CR>", { silent = true })
