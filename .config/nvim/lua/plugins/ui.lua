@@ -48,12 +48,12 @@ return {
 	{ "nacro90/numb.nvim" },
 	{ "sindrets/winshift.nvim" },
 	{ "SmiteshP/nvim-navic" },
-	{
-		"fgheng/winbar.nvim",
-		config = function()
-			vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-		end,
-	},
+	-- {
+	-- 	"fgheng/winbar.nvim",
+	-- 	config = function()
+	-- 		vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+	-- 	end,
+	-- },
 	{ "RRethy/vim-illuminate" },
 	{
 		"j-hui/fidget.nvim",

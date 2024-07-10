@@ -20,6 +20,7 @@ source $ZSH/oh-my-zsh.sh
 alias j='just'
 alias ls="ls -a --color=auto"
 alias lg='lazygit'
+alias t='tree'
 
 alias logs='sudo journalctl -fea | lnav'
  
@@ -28,3 +29,7 @@ eval "$(zoxide init zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

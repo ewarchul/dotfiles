@@ -43,5 +43,9 @@ return {
 			require("bamboo").load()
 		end,
 	},
-  { 'shaunsingh/nord.nvim' }
+  { 'shaunsingh/nord.nvim' },
+  { 'scottmckendry/cyberdream.nvim' },
+  { 'sho-87/kanagawa-paper.nvim' },
+  { 'niyabits/calvera-dark.nvim' },
+  { 'sontungexpt/witch' },
 }

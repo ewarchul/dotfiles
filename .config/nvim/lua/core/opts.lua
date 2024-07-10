@@ -18,7 +18,6 @@ opt.textwidth = 130
 opt.encoding = "UTF-8"
 opt.showcmd = true
 opt.showmatch = true
-opt.colorcolumn = "79"
 opt.foldmethod = "indent"
 opt.foldlevelstart = 10
 opt.foldnestmax = 10

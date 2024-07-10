@@ -87,6 +87,9 @@ return {
 					mason = false,
 					cmd = { "pylsp" },
 				},
+        pyright = {
+          mason = true,
+        },
 				r_language_server = {
 					mason = true,
 				},
