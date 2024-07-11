@@ -1,0 +1,23 @@
+.shell powershell
+
+ctrl + shift + return      : start wt.exe
+
+ctrl + shift + q           : komorebic close
+shift + left               : komorebic focus left
+shift + down               : komorebic focus down
+shift + up                 : komorebic focus up
+shift + right              : komorebic focus right
+
+ctrl + shift + left        : komorebic move left
+ctrl + shift + down        : komorebic move down
+ctrl + shift + up          : komorebic move up
+ctrl + shift + right       : komorebic move right
+
+ctrl + shift + t           : komorebic toggle-float
+ctrl + shift + f           : komorebic toggle-monocle
+
+
+ctrl + 1                   : komorebic focus-monitor-workspace 0 0
+ctrl + 2                   : komorebic focus-monitor-workspace 1 0
+ctrl + 3                   : komorebic focus-monitor-workspace 2 0
+
