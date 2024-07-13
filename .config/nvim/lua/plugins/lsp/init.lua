@@ -95,6 +95,7 @@ return {
 				},
 				rust_analyzer = {
 					mason = false,
+					cmd = { "ruff-lsp" },
 				},
 				cmake = {
 					mason = false,

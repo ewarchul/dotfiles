@@ -48,4 +48,6 @@ return {
   { 'sho-87/kanagawa-paper.nvim' },
   { 'niyabits/calvera-dark.nvim' },
   { 'sontungexpt/witch' },
+  { "folke/tokyonight.nvim" },
+  { "EdenEast/nightfox.nvim"}
 }
