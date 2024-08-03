@@ -23,7 +23,6 @@ return {
 			require("symbols-outline").setup({})
 		end,
 	},
-	{ "anuvyklack/pretty-fold.nvim", config = true },
 	{ "folke/todo-comments.nvim", config = true },
 	{
 		"NoahTheDuke/vim-just",

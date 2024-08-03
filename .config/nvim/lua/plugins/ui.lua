@@ -44,7 +44,6 @@ return {
 	{ "winston0410/cmd-parser.nvim" },
 	{ "winston0410/range-highlight.nvim" },
 	{ "danilamihailov/beacon.nvim" },
-	{ "kevinhwang91/nvim-ufo" },
 	{ "nacro90/numb.nvim" },
 	{ "sindrets/winshift.nvim" },
 	{ "SmiteshP/nvim-navic" },

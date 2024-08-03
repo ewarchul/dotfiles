@@ -1,5 +1,5 @@
 vim.cmd [[ 
-  colorscheme gruvbox-baby
+  colorscheme duskfox
   highlight Normal guibg=NONE
   highlight NonText guibg=NONE
   highlight SignColumn guibg=NONE
