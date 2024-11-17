@@ -108,6 +108,12 @@ return {
             "--stdio"
           }
         },
+        zls = {
+          mason = false,
+          cmd = {
+            "/usr/bin/zls"
+          }
+        },
         jsonls = {
           mason = false,
           cmd = {
