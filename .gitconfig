@@ -1,0 +1,13 @@
+[credential]
+  helper = store
+[user]
+  name = ewarchul
+  email = ewarchul@gmail.com
+[alias]
+  co = checkout
+  cb = checkout -b
+  st = status
+  po = push origin
+  pub = push -u origin
+  last = log -1 HEAD
+  undo = reset --soft HEAD~1
