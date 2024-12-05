@@ -1,4 +1,4 @@
-vim.cmd [[ 
+vim.cmd [[
   colorscheme onedark
   " highlight Normal guibg=NONE
   " highlight NonText guibg=NONE
