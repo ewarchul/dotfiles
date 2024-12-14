@@ -27,7 +27,7 @@ alias ls="ls -a --color=auto"
 alias lg='lazygit'
 alias t='tree'
 
-alias logs='sudo journalctl -fea | lnav'
+alias logs='journalctl -fea | lnav'
  
 eval "$(zoxide init zsh)"
 
