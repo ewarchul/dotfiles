@@ -38,7 +38,19 @@ return {
     priority = 1000,
     config = function()
       require("bamboo").setup({
-        -- optional configuration here
+        code_style = {
+          comments = { italic = true },
+          conditionals = { italic = false },
+          keywords = {},
+          functions = { bold = true },
+          namespaces = { italic = true },
+          parameters = { italic = false },
+          strings = {},
+          variables = {},
+        },
+        colors = {
+          bg0 = "#050505"
+        }
       })
       require("bamboo").load()
     end,
@@ -49,5 +61,8 @@ return {
   { 'niyabits/calvera-dark.nvim' },
   { 'sontungexpt/witch' },
   { "folke/tokyonight.nvim" },
-  { "EdenEast/nightfox.nvim" }
+  { "EdenEast/nightfox.nvim" },
+  { "loctvl842/monokai-pro.nvim" },
+  { "miikanissi/modus-themes.nvim", priority = 1000 },
+  { "bluz71/vim-moonfly-colors",    name = "moonfly", lazy = false, priority = 1000 },
 }

@@ -16,7 +16,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
  
 # User configuration
- 
+
+export EDITOR=nvim
+
+# Set polish keyboard
+setxkbmap pl
+
 alias j='just'
 alias ls="ls -a --color=auto"
 alias lg='lazygit'

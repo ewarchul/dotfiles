@@ -1,13 +1,9 @@
-import = [
- # "~/.config/alacritty/themes/doom_one.toml"
-  "~/.config/alacritty/themes/duskfox.toml"
-]
 
 [env]
 WINIT_X11_SCALE_FACTOR = "1"
 
 [font]
-size = 19
+size = 17
 
 [font.normal]
 family = "Hack"
@@ -24,4 +20,9 @@ opacity = 0.8
 [window.dimensions]
 columns = 100
 lines = 40
+
+[general]
+import = [
+  "~/.config/alacritty/themes/monokai_charcoal.toml"
+]
 
