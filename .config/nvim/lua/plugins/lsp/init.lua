@@ -11,77 +11,77 @@ return {
       })
     end,
   },
-	{ "williamboman/nvim-lsp-installer" },
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			{
-				"hrsh7th/cmp-nvim-lsp",
-				"nvimdev/lspsaga.nvim",
-			},
-		},
-		---@class PluginLspOpts
-		opts = {
-			-- options for vim.diagnostic.config()
-			diagnostics = {
-				underline = false,
-				update_in_insert = false,
-				virtual_text = false, --{ spacing = 4, prefix = "●" },
-				severity_sort = true,
-			},
-			autoformat = false,
-			format = {
-				formatting_options = nil,
-				timeout_ms = nil,
-			},
-			-- LSP Server Settings
-			---@type lspconfig.options
-			servers = {
-				clangd = {
-					mason = false,
-					cmd = {
-						"clangd",
-						"--function-arg-placeholders=false",
-						"--enable-config",
-						"--fallback-style=llvm",
-						"--header-insertion=iwyu",
-						"--background-index",
-						"--completion-style=detailed",
-						"--pretty",
-						"--j=4",
-					},
-					single_file_support = true,
-				},
-				volar = {
-					mason = false,
-					cmd = {
+  { "williamboman/nvim-lsp-installer" },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "hrsh7th/cmp-nvim-lsp",
+        "nvimdev/lspsaga.nvim",
+      },
+    },
+    ---@class PluginLspOpts
+    opts = {
+      -- options for vim.diagnostic.config()
+      diagnostics = {
+        underline = false,
+        update_in_insert = false,
+        virtual_text = false, --{ spacing = 4, prefix = "●" },
+        severity_sort = true,
+      },
+      autoformat = false,
+      format = {
+        formatting_options = nil,
+        timeout_ms = nil,
+      },
+      -- LSP Server Settings
+      ---@type lspconfig.options
+      servers = {
+        clangd = {
+          mason = false,
+          cmd = {
+            "clangd",
+            "--function-arg-placeholders=false",
+            "--enable-config",
+            "--fallback-style=llvm",
+            "--header-insertion=iwyu",
+            "--background-index",
+            "--completion-style=detailed",
+            "--pretty",
+            "--j=4",
+          },
+          single_file_support = true,
+        },
+        volar = {
+          mason = false,
+          cmd = {
             "/usr/bin/vue-language-server",
             "--stdio",
-					},
+          },
           filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
-				},
-				ruff_lsp = {
-					mason = false,
-					cmd = { "ruff-lsp" },
-				},
-				pylsp = {
-					mason = false,
-					cmd = { "pylsp" },
-				},
+        },
+        ruff = {
+          mason = false,
+          cmd = { "ruff-lsp" },
+        },
+        pylsp = {
+          mason = false,
+          cmd = { "pylsp" },
+        },
         pyright = {
           mason = true,
         },
-				r_language_server = {
-					mason = true,
-				},
-				rust_analyzer = {
-					mason = false,
-				},
-				cmake = {
-					mason = false,
-					cmd = { "cmake-language-server" },
-				},
-        tsserver = {
+        r_language_server = {
+          mason = true,
+        },
+        rust_analyzer = {
+          mason = false,
+        },
+        cmake = {
+          mason = false,
+          cmd = { "cmake-language-server" },
+        },
+        ts_ls = {
           mason = false,
           cmd = {
             "typescript-language-server",
