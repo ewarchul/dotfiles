@@ -1,4 +1,6 @@
-export PATH=$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
+NVM_NODE_PATH="/home/user/.nvm/versions/node/v18.20.4/bin"
+
+export PATH=$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/go/bin:$HOME/go/bin:$NVM_NODE_PATH:$PATH
  
 export ZSH="$HOME/.oh-my-zsh"
  
@@ -27,7 +29,7 @@ alias ls="ls -a --color=auto"
 alias lg='lazygit'
 alias t='tree'
 
-alias logs='journalctl -fea | lnav'
+alias logs='sudo journalctl -fea | lnav'
  
 eval "$(zoxide init zsh)"
 
