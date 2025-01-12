@@ -1,6 +1,6 @@
 #i3 
 
-exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/Wallpapers/forest-1.jpg
+exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/Wallpapers/linux-logo.png
 exec_always --no-startup-id /usr/bin/picom --config $HOME/.config/picom.conf
 
 bar {

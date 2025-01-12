@@ -8,6 +8,6 @@
   cb = checkout -b
   st = status
   po = push origin
-  pub = push -u origin
+  publish = push -u origin HEAD
   last = log -1 HEAD
   undo = reset --soft HEAD~1
