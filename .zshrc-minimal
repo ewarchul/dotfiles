@@ -21,15 +21,38 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
 
-# Set polish keyboard
-setxkbmap pl
-
 alias j='just'
 alias ls="ls -a --color=auto"
 alias lg='lazygit'
 alias t='tree'
 
+# SSH
+
+alias devb='ssh devboard'
+
 alias logs='sudo journalctl -fea | lnav'
+
+# Poetry aliases
+
+alias psh='poetry shell'
+alias pli='poetry lock && poetry install'
+
+# Systemd
+
+alias svd='sudo systemctl stop'
+alias svu='sudo systemctl start'
+alias svs='sudo systemctl status'
+alias svr='sudo systemctl restart'
+alias svrd='sudo systemctl daemon-reload'
+
+# git alias
+
+alias cdg='cd $(git rev-parse --show-toplevel)'
+
+# Gcpro aliases
+
+alias set_gcpro_perms='sudo chown $USER -R /run/gcpro /var/lib/gcpro /etc/gcpro /run/task-scheduler'
+
  
 eval "$(zoxide init zsh)"
 

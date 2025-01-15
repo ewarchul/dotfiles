@@ -1,5 +1,12 @@
 return {
   {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp"
+  },
+  {
     "nvimdev/lspsaga.nvim",
     config = function()
       require("lspsaga").setup({
@@ -55,18 +62,39 @@ return {
         volar = {
           mason = false,
           cmd = {
-            "/usr/bin/vue-language-server",
+            "/home/user/.nvm/versions/node/v18.20.4/bin/vue-language-server",
             "--stdio",
           },
-          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+          init_options = {
+            filetypes = {
+              'vue',
+            },
+          }
+        },
+        ts_ls = {
+          mason = false,
+          cmd = {
+            "/home/user/.nvm/versions/node/v18.20.4/bin/typescript-language-server",
+            "--stdio",
+          },
+          init_options = {
+            filetypes = {
+              "javascript",
+              "typescript",
+            },
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "/home/user/.nvm/versions/node/v18.20.4/lib/node_modules/@vue/typescript-plugin",
+                languages = { "vue" },
+              },
+            },
+          }
+
         },
         ruff = {
           mason = false,
           cmd = { "ruff-lsp" },
-        },
-        pylsp = {
-          mason = false,
-          cmd = { "pylsp" },
         },
         pyright = {
           mason = true,
@@ -80,13 +108,6 @@ return {
         cmake = {
           mason = false,
           cmd = { "cmake-language-server" },
-        },
-        ts_ls = {
-          mason = false,
-          cmd = {
-            "typescript-language-server",
-            "--stdio"
-          }
         },
         zls = {
           mason = false,
@@ -103,7 +124,7 @@ return {
         jsonls = {
           mason = false,
           cmd = {
-            "vscode-json-language-server",
+            "/home/user/.nvm/versions/node/v18.20.4/bin/vscode-json-language-server",
             "--stdio"
           }
         },
