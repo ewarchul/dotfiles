@@ -60,4 +60,15 @@ return {
     version = '^4', -- Recommended
     lazy = false,   -- This plugin is already lazy
   },
+  {
+    "wallpants/github-preview.nvim",
+    cmd = { "GithubPreviewToggle" },
+    opts = {
+    },
+    config = function(_, opts)
+      local gpreview = require("github-preview")
+      gpreview.setup(opts)
+    end,
+  }
+
 }
