@@ -15,7 +15,7 @@ family = "Hack"
 family = "Hack"
 
 [window]
-opacity = 0.8
+opacity = 0.95
 
 [window.dimensions]
 columns = 100
@@ -23,6 +23,6 @@ lines = 40
 
 [general]
 import = [
-  "~/.config/alacritty/themes/monokai_charcoal.toml"
+  "~/.config/alacritty/themes/srcery.toml"
 ]
 
