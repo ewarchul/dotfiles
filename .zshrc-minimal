@@ -3,6 +3,8 @@ NVM_NODE_PATH="/home/user/.nvm/versions/node/v18.20.4/bin"
 export PATH=$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/go/bin:$HOME/go/bin:$NVM_NODE_PATH:$PATH
  
 export ZSH="$HOME/.oh-my-zsh"
+
+setxkbmap -layout pl
  
 ZSH_THEME="eastwood"
  
@@ -70,3 +72,5 @@ eval "$(pyenv init -)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+fastfetch
