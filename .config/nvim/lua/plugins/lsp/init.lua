@@ -59,6 +59,13 @@ return {
           },
           single_file_support = true,
         },
+        erlangls = {
+          mason = false,
+          cmd = {
+            "/usr/local/bin/erlang_ls"
+          },
+          single_file_support = true,
+        },
         volar = {
           mason = false,
           cmd = {
