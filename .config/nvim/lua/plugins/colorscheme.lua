@@ -1,17 +1,17 @@
 return {
   { "luisiacc/gruvbox-baby" },
   { "sainnhe/gruvbox-material" },
-  {
-    "navarasu/onedark.nvim",
-    config = function()
-      require("onedark").setup({
-        style = "warmer",
-      })
-    end,
-  },
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   config = function()
+  --     require("onedark").setup({
+  --       style = "warmer",
+  --     })
+  --   end,
+  -- },
   { "rmehri01/onenord.nvim" },
   { "ray-x/aurora" },
-  --	{ "olimorris/onedarkpro.nvim" },
+  { "olimorris/onedarkpro.nvim" },
   { "nvimdev/zephyr-nvim" },
   { "NTBBloodbath/doom-one.nvim" },
   { "FrenzyExists/aquarium-vim" },
@@ -64,6 +64,7 @@ return {
   { "EdenEast/nightfox.nvim" },
   { "loctvl842/monokai-pro.nvim" },
   { "miikanissi/modus-themes.nvim", priority = 1000 },
-  { "bluz71/vim-moonfly-colors",    name = "moonfly", lazy = false, priority = 1000 },
+  { "bluz71/vim-moonfly-colors",    name = "moonfly",    lazy = false,   priority = 1000 },
   { "srcery-colors/srcery-vim" },
+  { "catppuccin/nvim",              name = "catppuccin", priority = 1000 }
 }

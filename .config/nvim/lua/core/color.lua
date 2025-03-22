@@ -1,3 +1,3 @@
 vim.cmd [[
-  colorscheme bamboo-vulgaris
+  colorscheme catppuccin-mocha
 ]]

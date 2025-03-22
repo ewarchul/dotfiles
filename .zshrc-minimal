@@ -51,6 +51,10 @@ alias svrd='sudo systemctl daemon-reload'
 
 alias cdg='cd $(git rev-parse --show-toplevel)'
 
+# cargo aliases:
+
+alias cg='cargo'
+
 # Gcpro aliases
 
 alias set_gcpro_perms='sudo chown $USER -R /run/gcpro /var/lib/gcpro /etc/gcpro /run/task-scheduler'
