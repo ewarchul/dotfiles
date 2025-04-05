@@ -38,6 +38,7 @@ alias logs='sudo journalctl -fea | lnav'
 
 alias psh='poetry shell'
 alias pli='poetry lock && poetry install'
+alias py="python3"
 
 # Systemd
 
