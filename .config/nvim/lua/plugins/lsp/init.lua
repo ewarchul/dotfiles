@@ -47,15 +47,15 @@ return {
         clangd = {
           mason = false,
           cmd = {
-            "clangd",
+            "/usr/bin/clangd",
             "--function-arg-placeholders=false",
             "--enable-config",
             "--fallback-style=llvm",
             "--header-insertion=iwyu",
-            "--background-index",
+--            "--background-index",
             "--completion-style=detailed",
             "--pretty",
-            "--j=4",
+--            "--j=4",
           },
           single_file_support = true,
         },
@@ -112,9 +112,12 @@ return {
         rust_analyzer = {
           mason = false,
         },
-        cmake = {
+        neocmake = {
           mason = false,
-          cmd = { "cmake-language-server" },
+          cmd = {
+            "neocmakelsp",
+            "--stdio",
+          },
         },
         zls = {
           mason = false,

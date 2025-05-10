@@ -1,6 +1,6 @@
 #i3 
 
-exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/dotfiles/Wallpapers/ship.jpg
+exec_always --no-startup-id /usr/bin/feh --bg-fill /home/ewarchul/dotfiles/Wallpapers/gst.png
 exec_always --no-startup-id /usr/bin/picom --config $HOME/.config/picom.conf
 
 bar {

@@ -66,5 +66,15 @@ return {
   { "miikanissi/modus-themes.nvim", priority = 1000 },
   { "bluz71/vim-moonfly-colors",    name = "moonfly",    lazy = false,   priority = 1000 },
   { "srcery-colors/srcery-vim" },
-  { "catppuccin/nvim",              name = "catppuccin", priority = 1000 }
+  { "catppuccin/nvim",              name = "catppuccin", priority = 1000 },
+  {
+    "ilof2/posterpole.nvim",
+    config = function()
+      require("posterpole").setup({
+        brightness = -5,
+        fg_saturation = 25,
+        bg_saturation = 1,
+      })
+    end,
+  }
 }
