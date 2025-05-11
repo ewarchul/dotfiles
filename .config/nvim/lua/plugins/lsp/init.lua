@@ -42,7 +42,6 @@ return {
         timeout_ms = nil,
       },
       -- LSP Server Settings
-      ---@type lspconfig.options
       servers = {
         clangd = {
           mason = false,
@@ -52,52 +51,12 @@ return {
             "--enable-config",
             "--fallback-style=llvm",
             "--header-insertion=iwyu",
---            "--background-index",
+            --            "--background-index",
             "--completion-style=detailed",
             "--pretty",
---            "--j=4",
+            --            "--j=4",
           },
           single_file_support = true,
-        },
-        erlangls = {
-          mason = false,
-          cmd = {
-            "/usr/local/bin/erlang_ls"
-          },
-          single_file_support = true,
-        },
-        volar = {
-          mason = false,
-          cmd = {
-            "/home/user/.nvm/versions/node/v18.20.4/bin/vue-language-server",
-            "--stdio",
-          },
-          init_options = {
-            filetypes = {
-              'vue',
-            },
-          }
-        },
-        ts_ls = {
-          mason = false,
-          cmd = {
-            "/home/user/.nvm/versions/node/v18.20.4/bin/typescript-language-server",
-            "--stdio",
-          },
-          init_options = {
-            filetypes = {
-              "javascript",
-              "typescript",
-            },
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = "/home/user/.nvm/versions/node/v18.20.4/lib/node_modules/@vue/typescript-plugin",
-                languages = { "vue" },
-              },
-            },
-          }
-
         },
         ruff = {
           mason = false,
@@ -105,12 +64,6 @@ return {
         },
         pyright = {
           mason = true,
-        },
-        r_language_server = {
-          mason = true,
-        },
-        rust_analyzer = {
-          mason = false,
         },
         neocmake = {
           mason = false,
