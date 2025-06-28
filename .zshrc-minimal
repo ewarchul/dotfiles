@@ -79,3 +79,16 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 fastfetch
+
+
+xrandr_set_single_display = function() {
+  xrandr --output DP-2 --off
+  xrandr --output HDMI-0 --off
+  xrandr --output HDMI-1 --scale 1.4x1.4
+}
+
+xrandr_set_multiple_displays = function() {
+  xrandr --output HDMI-1 --right-of DP-2
+  xrandr --output HDMI-0 --left-of DP-2
+  xrandr --output HDMI-1 --scale 1.4x1.4
+}
